@@ -1,0 +1,18 @@
+MIPS Delay Slot Instructions
+----------------------------
+ 
+On the MIPS architecture, jump and branch instructions have a "delay slot". This means that the instruction after the jump or branch instruction is executed before the jump or branch is executed.
+
+In addition, there is a group of "branch likely" conditional branch instructions in which the instruction in the delay slot is executed only if the branch is taken.
+
+The MIPS processors execute the jump or branch instruction and the delay slot instruction as an indivisible unit. If an exception occurs as a result of executing the delay slot instruction, the branch or jump instruction is not executed, and the exception appears to have been caused by the jump or branch instruction.
+
+This behavior of the MIPS processors affects both the TotalView instruction step command and TotalView breakpoints.
+
+The TotalView instruction step command will step both the jump or branch instruction and the delay slot instruction as if they were a single instruction.
+
+If a breakpoint is placed on a delay slot instruction, execution will stop at the jump or branch preceding the delay slot instruction, and TotalView will not know that it is at a breakpoint. At this point, attempting to continue the thread which hit the breakpoint without first removing the breakpoint will cause the thread to hit the breakpoint again without executing any instructions. Before continuing the thread, you must remove the breakpoint. If you need to reestablish the breakpoint, you might then use the instruction step command to execute just the delay slot instruction and the branch.
+
+A breakpoint placed on a delay slot instruction of a "branch likely" instruction will be hit only if the branch is going to be taken.
+
+Source: http://public.lanl.gov/totalview/online-4.1.0-4/user_guide/appc28.html

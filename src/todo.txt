@@ -1,0 +1,3 @@
+TODO
+----
+- Game detection is needed, because different games utilize different CIC- and Save RAM-chips.
