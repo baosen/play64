@@ -80,7 +80,8 @@ namespace Pak {
     // Read 32-bit value.
     u32 rd32(const u32 i) {
     	if (i > sizeof(rom)-1)
-            throw err("Outside ROM!");
+            throw err("Read outside ROM!");
+
     	return *rcast<u32*>(rom+i);
     }
 

@@ -16,10 +16,6 @@ public:
     // Get the virtual memory address of the origin of the framebuffer.
     memory_address get_framebuffer_address() const;
 
-    void set_main_window(wxWindow *ptr_to_main_window);
-
-    // Draw framebuffer to screen.
-    void draw_to_screen();
 private:
     framebuffer();
     ~framebuffer();
