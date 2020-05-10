@@ -17,7 +17,7 @@ END_EVENT_TABLE()
 Disassembler::Disassembler(wxFrame* f, const memory_address b)
     : wxListView(f), id(0), rows(0), base(b) {
     InsertColumn(0, "Address");
-    InsertColumn(1, "Statement");
+    InsertColumn(1, "Instructions");
     ss << hex << setw(8);
 }
 
