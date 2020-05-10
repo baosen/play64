@@ -151,7 +151,7 @@ static string cop0_name(const int i) {
         return "WatchLo";
     case WatchHi: 
         return "WatchHi";
-    case XContext: 
+    case C0_XContext:
         return "XContext";
     case PErr: 
         return "PErr";

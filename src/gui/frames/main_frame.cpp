@@ -2,12 +2,12 @@
 #include "../../cpu/interpreter/err.hpp"
 #include "../../cpu/interpreter/pc.hpp"
 #include "../../memory_map/pak.hpp"
-#include "main_frame.hpp"
 #include "../menu.hpp"
 #include "../id.hpp"
 #include "../dlg.hpp"
 #include "../dbg.hpp"
 #include "../../cpu/interpreter/interp.hpp"
+#include "main_frame.hpp"
 
 // Event callbacks.
 wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
@@ -25,9 +25,10 @@ wxEND_EVENT_TABLE()
 MainFrame::MainFrame() : wxFrame(nullptr,
                                  wxID_ANY,
                                  APPLICATION_NAME,                  // Name of the application.
-                     wxDefaultPosition, wxDefaultSize), // Position and size of frame.
+                                 wxDefaultPosition, wxDefaultSize), // Position and size of frame.
                      disassembler(new Disassembler(this, ENTRY_POINT)),
-                         registers(new Regview(this))
+                     registers(new Regview(this)),
+                     main_video_window(new VideoOutput(this))
 {
     // Create top menu bar.
     SetMenuBar(topmenu());
@@ -35,9 +36,11 @@ MainFrame::MainFrame() : wxFrame(nullptr,
 
     // Set this frame to be managed by the docking window.
     mgr.SetManagedWindow(this);
+
     // Setup docking.
     mgr.AddPane(disassembler, wxCENTER, _("Disassembly"));
     mgr.AddPane(registers, wxRIGHT, _("Registers"));
+    mgr.AddPane(main_video_window, wxRIGHT, _("Video"));
     mgr.Update();
 
     // Start maximized.

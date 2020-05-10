@@ -138,7 +138,7 @@ set(SRC
         src/memory_map/vmem.cpp
         src/memory_map/vmem.hpp
         src/memory_map/mips_exception_handlers.hpp
-        src/logging/log.cpp src/logging/log.hpp src/memory_map/vi/framebuffer.cpp src/memory_map/vi/framebuffer.h)
+        src/logging/log.cpp src/logging/log.hpp src/memory_map/vi/framebuffer.cpp src/memory_map/vi/framebuffer.h src/gui/VideoOutput.h src/gui/VideoOutput.cpp)
 
 # Compile source code and link it to an executable.
 add_executable(play64 ${SRC})

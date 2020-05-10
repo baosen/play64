@@ -41,7 +41,7 @@ enum C0 {
 	LLAddr,
     WatchLo,
     WatchHi,
-    XContext,
+    C0_XContext,
 
 //////////////////////////////////////////////////////////
     RESERVED2, RESERVED3, RESERVED4, RESERVED5, RESERVED6,

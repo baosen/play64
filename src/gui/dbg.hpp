@@ -1,4 +1,6 @@
 #pragma once
+#include "../memory_map/memaddr.hpp"
+
 //#include <cstdio>
 //#include <cerrno>
 //#include <cstring>
