@@ -11,5 +11,5 @@ namespace Pak {
     // Returns a reference to a modifiable 32-bit value from address at offset.
     u32 rd32(const u32 i);
     // Is game cartridge loaded.
-    bool isloaded();
+    bool is_rom_loaded();
 }

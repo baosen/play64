@@ -9,15 +9,22 @@
 using namespace std;
 
 namespace {
-    bool loaded = false; // is a game cartridge loaded?
+    // Is game cartridge ROM loaded?
+    bool loaded = false;
 
+    // Returns the length of a file.
     size_t len(FILE *fp, const char path[]) {
+        // Is file opened and file path is not empty?
         assert(fp && path);
+
+        // Get the file length of the opened file.
     	fseek(fp, 0L, SEEK_END);
     	const auto sz = ftell(fp);
         if (sz < 0)
             throw err(string("Failed to read length of file: ") + path);
     	rewind(fp);
+
+    	// Return the size/length of the file in bytes.
     	return sz;
     }
 
@@ -85,7 +92,7 @@ namespace Pak {
     	return *rcast<u32*>(rom+i);
     }
 
-    bool isloaded() {
+    bool is_rom_loaded() {
         return loaded;
     }
 }

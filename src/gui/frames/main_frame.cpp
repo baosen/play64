@@ -102,7 +102,7 @@ DCMDU(MainFrame, File) {
 // Is ROM been loaded into the virtual memory?
 bool MainFrame::is_rom_loaded() {
     // Check if the ROM has been loaded into the virtual memory.
-    if (Pak::isloaded()) {
+    if (Pak::is_rom_loaded()) {
         return true;
     }
 
