@@ -6,6 +6,7 @@ using namespace std;
 enum {
     DMEM = 0, /* RSP processor's data memory containing the task header. */
     // The task header is loaded in here.
+
     IMEM = 0x1000, /* RSP processor's instruction memory containing RSP instructions. */
     // The microcode is loaded in here.
     
@@ -29,35 +30,42 @@ namespace {
     u32 segid[16]; // The RSP can store and index 16 base addresses.
     // Base address[Segment ID] + Offset.
     // segid[0] is reserved (check manual).
+
     u32 reg[16]; // RSP COP0-registers that maps the DMA control. Maps RDP regs too.
     u32 memaddr = 0; // Data memory address (DRAM) or Instruction memory address (IMEM).
     u32 dramaddr = 0;
     // (RW): [23:0] RDRAM address.
+
     u32 rdlen = 0; // Read length (+1?) in bytes.
     // (RW): [11:0] length
     //       [19:12] count
     //       [31:20] skip                 
     //       direction: I/DMEM <- RDRAM
+
     u32 wrlen = 0; // Write length (+1?) in bytes.
     // (RW): [11:0] length
     //       [19:12] count
     //       [31:20] skip                 
     //       direction: I/DMEM -> RDRAM
+
     u32 stat = 1; // STATUS-register.
-    u32 full = 0;
-    u32 sema = 0;
+    u32 full = 0; // Is full?
+    u32 sema = 0; // Semaphore.
     u32 bist = 0; // IMEM Built-In Self-Test.
 
     // TODO: Use the 16 segment addressing to physical address scheme...
 }
 
+// RSP is a MIPS-like vector processor with COP0 and COP2 (no COP1)
+// used as a "shader" and "audio"-processor.
+//
 // RSP memory callback functions mapped to the RSP's address space.
 namespace Sp { 
     char imem[SP_MEMSIZE] = {0}, // Instruction memory.
          dmem[SP_MEMSIZE] = {0}; // Data memory.
     u32  pc = 0; // (RW): [11:0] SP's program counter.
 
-// DMA read and write engine from the global RDRAM to the data (DMEM) or instruction (IMEM) memory of the RSP.
+    // DMA read and write engine from the global RDRAM to the data (DMEM) or instruction (IMEM) memory of the RSP.
 
     // RDram memory address.
     RD(dram_addr) { 
@@ -137,6 +145,7 @@ namespace Sp {
     //      [23] clear signal 7
     //      [24] set signal 7
 
+    // Is DMA full?
     RD(dma_full) { 
         return full; 
     }
@@ -148,7 +157,7 @@ namespace Sp {
     }
     // (R): [0] valid bit, dma busy.
 
-// Test and set bit acting as a lock for code that shares resources between CPU and SP.
+    // Test and set bit acting as a lock for code that shares resources between CPU and SP.
     RD(semaphore) {
         // Set lock/semaphore.
         sema = 1;
@@ -160,7 +169,7 @@ namespace Sp {
     }
     // (R): [0] semaphore flag (set on read). (W): [any bit] clear semaphore flag.
 
-// Instruction memory's (IMEM) built-in self test.
+    // Instruction memory's (IMEM) built-in self test.
     RD(bist) { 
         return bist; 
     }
