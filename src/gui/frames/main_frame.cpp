@@ -102,8 +102,11 @@ DCMDU(MainFrame, File) {
 // Is ROM been loaded into the virtual memory?
 bool MainFrame::is_rom_loaded() {
     // Check if the ROM has been loaded into the virtual memory.
-    if (Pak::isloaded())
+    if (Pak::isloaded()) {
         return true;
+    }
+
+    // Tell user that no ROM has been loaded.
     SetStatusText("No Nintendo 64 ROM file has been loaded!");
     return false;
 }
@@ -114,11 +117,17 @@ DCMDU(MainFrame, Execute) {
         return;
     try {
         disassembler->deselect(Cpu::pc);
+
+        // Run the game.
         for (;;)
             Interpreter::step();
+
     } catch (const err& e) {
+        // Set view to show the instruction it errored on.
         registers->update();
         disassembler->select(Cpu::pc);
+
+        // Tell the user about the error.
         SetStatusText(e.what());
     } catch (...) {
         registers->update();
