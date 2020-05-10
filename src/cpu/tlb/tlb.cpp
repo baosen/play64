@@ -23,6 +23,8 @@ namespace {
     }
 }
 
+// Translation look-aside buffer used to cache mappings between
+// virtual memory address to physical memory address.
 namespace Tlb {
     // Reset the TLB table of entries.
     void reset() {
