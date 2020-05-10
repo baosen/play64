@@ -117,6 +117,7 @@ DCMDU(MainFrame, Execute) {
         return;
 
     try {
+        // De-select current instruction.
         disassembler->deselect(Cpu::pc);
 
         // Run the game.
