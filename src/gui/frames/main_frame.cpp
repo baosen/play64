@@ -143,7 +143,9 @@ DCMDU(MainFrame, Step) {
     try {
         if (!is_rom_loaded())
             return;
+
         disassembler->deselect(Cpu::pc);
+
         Interpreter::step();
         registers->update();
         disassembler->select(Cpu::pc);
@@ -171,6 +173,7 @@ DCMDU(MainFrame, ExecuteTillBreakpoint) {
     }
 
     try {
+        // De-select current instruction.
         disassembler->deselect(Cpu::pc);
 
         // Execute an instruction and break on the next instruction.

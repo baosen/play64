@@ -47,6 +47,7 @@ namespace RDram {
 	char ram[MEMORY_END];
 
     void reset() { zero(ram); }
+
     u32 rd32(const uint i) { return ram[i]; }
     void wr32(const uint i, const u32 val) { ram[i] = val; }
 }
