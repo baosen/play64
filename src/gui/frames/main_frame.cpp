@@ -68,6 +68,7 @@ DCMDU(MainFrame, File) {
     // Load ROM into pak.
     const auto path = ask_user_for_rom(this);
 
+    // If user has not specified any ROM.
     if (path.IsSameAs("")) {
         SetStatusText("No ROM-file specified...");
         return;
@@ -76,8 +77,10 @@ DCMDU(MainFrame, File) {
     try {
         // Clear all instructions.
         disassembler->clear();
+
         // Load ROM file into Game Pak ROM memory.
         Pak::load(path.c_str());
+
         // Tell the user that the ROM was successfully is_rom_loaded!
         SetStatusText("Successfully loaded ROM: " + path);
     } catch (const err& e) {
@@ -88,6 +91,7 @@ DCMDU(MainFrame, File) {
 
     // Fill disassembly with instructions.
     disassembler->fill();
+
     // Mark instruction pointed by the program counter (instruction pointer).
     disassembler->select(ENTRY_POINT);
 }

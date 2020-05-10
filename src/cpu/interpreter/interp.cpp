@@ -15,12 +15,15 @@ namespace Interpreter {
     }
 
     // Execute an instruction given.
-    void exec(const Instr i) {
+    void exec(const Instr instruction) {
     	// Check if is a NOP (no operation)-instruction.
-    	if (i.is_nop())
-            goto dec;
-    	Normals::call(i);
-    dec:
+    	if (instruction.is_nop())
+            goto decrement_random;
+
+    	// Interpret NORMAL-instruction.
+    	Normals::call(instruction);
+
+    decrement_random:
         // Decrements the control unit's random register, which is decremented each time an instruction is executed (p.69 VR4300).
         System_control::decrement_random();
     }
@@ -31,10 +34,13 @@ start:
     	try {
             // Fetch new instruction.
             const auto i = fetch();
+
             // Advance PC.
             Cpu::advance();
+
             // Execute instruction.
             exec(i);
+
             // Check for pending interrupts and execute them.
             Mi::intif();
         } catch (const Tlb::Miss& m){

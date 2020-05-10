@@ -1,4 +1,5 @@
 #pragma once
+
 // TODO: The PAL-values needs to be checked by testing out Brazilian roms.
 // The Country Code stored in the Game Pak to identify the Game Pak's region that it was targeted for.
 enum class country_code {

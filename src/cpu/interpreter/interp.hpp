@@ -22,7 +22,7 @@ namespace Interpreter {
     // Fetch an instruction.
     Instr fetch();
     // Execute MIPS instruction.
-    void exec(const Instr i);
+    void exec(const Instr instruction);
 	// Load N64 rom from a specified file path.
 	void load(const char filepath[]);
 	// Reset system. 
