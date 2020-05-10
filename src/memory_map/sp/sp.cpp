@@ -114,17 +114,18 @@ namespace Sp {
     //      [4]  set intr                 [4]  io full
     //      [5]  clear single step        [5]  single step
     //      [6]  set sstep                [6]  interrupt on break
-    //      [7]  clear intr on break      
+    //      [7]  clear intr on break
+    //
     // User-defined signal bits that can be used to signal events between CPU and RSP:
     // (W):                           (R):
-    //                                    [7]  signal 0 set
-    //      [8]  set intr on break        [8]  signal 1 set
-    //      [9]  clear signal 0           [9]  signal 2 set
-    //      [10] set signal 0             [10] signal 3 set
-    //      [11] clear signal 1           [11] signal 4 set
-    //      [12] set signal 1             [12] signal 5 set
-    //      [13] clear signal 2           [13] signal 6 set
-    //      [14] set signal 2             [14] signal 7 set
+    //                                    [7]  read to check if signal 0 has been set.
+    //      [8]  set intr on break        [8]  read to check if signal 1 has been set.
+    //      [9]  clear signal 0           [9]  read to check if signal 2 has been set.
+    //      [10] set signal 0             [10] read to check if signal 3 has been set.
+    //      [11] clear signal 1           [11] read to check if signal 4 has been set.
+    //      [12] set signal 1             [12] read to check if signal 5 has been set.
+    //      [13] clear signal 2           [13] read to check if signal 6 has been set.
+    //      [14] set signal 2             [14] read to check if signal 7 has been set.
     //      [15] clear signal 3
     //      [16] set signal 3
     //      [17] clear signal 4
