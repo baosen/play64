@@ -115,6 +115,7 @@ bool MainFrame::is_rom_loaded() {
 DCMDU(MainFrame, Execute) {
     if (!is_rom_loaded())
         return;
+
     try {
         disassembler->deselect(Cpu::pc);
 
