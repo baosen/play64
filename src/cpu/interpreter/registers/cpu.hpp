@@ -17,7 +17,7 @@ namespace Cpu {
 // Initialize registers with start values.
 	void reset();
 // Advance the program counter.
-	void advance();
+	void advance_program_counter();
 // Revert the processors state one step backwards.
 	void revert();
 

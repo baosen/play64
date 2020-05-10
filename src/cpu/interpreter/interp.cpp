@@ -15,7 +15,7 @@ namespace Interpreter {
     }
 
     // Execute an instruction given.
-    void exec(const Instr instruction) {
+    void execute_instruction(const Instr instruction) {
     	// Check if is a NOP (no operation)-instruction.
     	if (instruction.is_nop())
             goto decrement_random;
@@ -33,13 +33,13 @@ namespace Interpreter {
 start:
     	try {
             // Fetch new instruction.
-            const auto i = fetch();
+            const auto new_instruction_fetched = fetch();
 
-            // Advance PC.
-            Cpu::advance();
+            // Advance program counter.
+            Cpu::advance_program_counter();
 
             // Execute instruction.
-            exec(i);
+            execute_instruction(new_instruction_fetched);
 
             // Check for pending interrupts and execute them.
             Mi::intif();
@@ -58,8 +58,10 @@ start:
     void reset() {
         // Reset CPU registers.
         Cpu::reset();
+
         // Reset the control coprocessor (Coprocessor 0).
         System_control::reset();
+
         // Reset Translation Look-Aside Buffer.
         Tlb::reset();
     }

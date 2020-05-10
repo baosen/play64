@@ -202,7 +202,7 @@ namespace {
     // Jump register.
     // - Jumps to the address pointed by the address in register rs.
     INSTR(jr) {
-    	exec(fetch()); // delay slot.
+        execute_instruction(fetch()); // delay slot.
     	Cpu::pc = get32(instr.rs());
     }
     // Jump and link register.

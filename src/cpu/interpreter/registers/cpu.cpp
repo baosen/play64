@@ -303,7 +303,7 @@ namespace Cpu {
     }
     
     // Advance the program counter with the size of one instruction (32-bit/4 bytes).
-    void advance() {
+    void advance_program_counter() {
     	old_pc = pc;
     	pc += INSTR_SIZE;
     }

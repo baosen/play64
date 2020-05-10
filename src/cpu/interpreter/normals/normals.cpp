@@ -27,12 +27,12 @@ namespace {
 //
     // Jump.
     INSTR(j) {
-    	exec(fetch());
+        execute_instruction(fetch());
     	pc = ((pc & 0xf8000000) | idxsh(instr));
     }
     // Jump and link.
     INSTR(jal) {
-    	exec(fetch());
+        execute_instruction(fetch());
     	set32(ra, pc + 4);
     	pc = (((pc + 4) & 0xf0000000) | idxsh(instr));
     }
@@ -43,12 +43,12 @@ namespace {
         // Jump if equal.
     	if ((s32)get32(instr.rs()) == (s32)get32(instr.rt())) {
             // Execute delay slot.
-    	    exec(dslot); 
+            execute_instruction(dslot);
     		incpc(sext18(offsh(instr)));
     		return;
     	}
         // Execute delay slot.
-	    exec(dslot); 
+        execute_instruction(dslot);
         // Jump over delay-slot.
     	incpc(INSTR_SIZE); 
     }
@@ -56,39 +56,39 @@ namespace {
     INSTR(bne) {
         const auto dslot = fetch();
     	if ((s32)get32(instr.rs()) != (s32)get32(instr.rt())) {
-            exec(dslot);
+            execute_instruction(dslot);
     		incpc(sext18(offsh(instr)));
     		return;
     	}
-        exec(dslot);
+        execute_instruction(dslot);
     	incpc(INSTR_SIZE);
     }
     // Branch less than zero.
     INSTR(blez) {
         const auto dslot = fetch();
     	if ((s32)get32(instr.rs()) <= 0) {
-   		    exec(dslot);
+            execute_instruction(dslot);
     		incpc(sext18(offsh(instr)));
     		return;
     	}
-	    exec(dslot);
+        execute_instruction(dslot);
     	incpc(INSTR_SIZE);
     }
     // Branch greater than zero.
     INSTR(bgtz) {
         const auto dslot = fetch();
     	if ((s32)get32(instr.rs()) > 0) {
-   		    exec(dslot);
+            execute_instruction(dslot);
     		incpc(sext18(offsh(instr)));
     		return;
     	}
-	    exec(dslot);
+        execute_instruction(dslot);
     	incpc(INSTR_SIZE);
     }
     // Branch equal likely and execute delay slot if equal.
     INSTR(beql) {
     	if ((s32)get32(instr.rs()) == (s32)get32(instr.rt())) {
-    		exec(fetch());
+            execute_instruction(fetch());
     		incpc(sext18(offsh(instr)));
             return;
     	}
@@ -97,7 +97,7 @@ namespace {
     // Branch not equal likely and execute delay slot if not equal.
     INSTR(bnel) {
     	if ((s32)get32(instr.rs()) != (s32)get32(instr.rt())) {
-    		exec(fetch());
+            execute_instruction(fetch());
     		incpc(sext18(offsh(instr)));
     		return;
     	}
@@ -106,7 +106,7 @@ namespace {
     // Branch less or equal to zero likely and execute delay slot if true.
     INSTR(blezl) {
     	if ((s32)get32(instr.rs()) <= 0) {
-    		exec(fetch());
+            execute_instruction(fetch());
     		incpc(sext18(offsh(instr)));
     		return;
     	}
@@ -115,7 +115,7 @@ namespace {
     // Branch greater than zero likely and execute delay slot if true.
     INSTR(bgtzl) {
     	if ((s32)get32(instr.rs()) > 0) {
-    		exec(fetch());
+            execute_instruction(fetch());
     		incpc(sext18(offsh(instr)));
     		return;
     	}
