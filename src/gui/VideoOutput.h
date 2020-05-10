@@ -5,7 +5,14 @@
 class VideoOutput : public wxGLCanvas {
 public:
     VideoOutput(wxWindow* parent);
+
+    // Handle paint event.
+    void OnPaint(wxPaintEvent& WXUNUSED(event));
+
 private:
-    wxGLContext  *opengl_context;
+    wxGLContext *m_opengl_context;
+
+protected:
+    DECLARE_EVENT_TABLE()
 };
 

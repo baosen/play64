@@ -4,6 +4,9 @@ project(play64)
 # Set to use C++20.
 set(CMAKE_CXX_STANDARD 20)
 
+# Import OpenGL.
+find_package(OpenGL REQUIRED)
+
 # Import WxWidgets.
 find_package(wxWidgets COMPONENTS core base aui gl REQUIRED)
 include(${wxWidgets_USE_FILE})
@@ -142,4 +145,4 @@ set(SRC
 
 # Compile source code and link it to an executable.
 add_executable(play64 ${SRC})
-target_link_libraries(play64 ${wxWidgets_LIBRARIES})
+target_link_libraries(play64 ${wxWidgets_LIBRARIES} ${OPENGL_LIBRARIES})
