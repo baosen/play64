@@ -7,8 +7,8 @@
 // --------------------
 // The VR4300 supports the 32-bit virtual address spaces defined by MIPS:
 // - KUSEG: Kernel user segment.
-// - KSEG0: Kernel segment 0.
-// - KSEG1: Kernel segment 1.
+// - KSEG0: Kernel segment 0. Unmapped.
+// - KSEG1: Kernel segment 1. Unmapped.
 // - KSSEG/KSEG2: Kernel supervisor segment/segment 2.
 // - KSEG3: Kernel segment 3.
 // The 64-bit address space are not used by any Nintendo 64 games.
