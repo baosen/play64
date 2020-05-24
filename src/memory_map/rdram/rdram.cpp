@@ -41,7 +41,8 @@ enum {
     DEVICE_MANUFACTURER = 0x24,
 };
 
-// The Nintendo 64's main memory that contains four megabytes of "nine bit" DRAMS.
+// The Nintendo 64's main memory that contains four megabytes of "nine bit" rows,
+// which can be extended to eight megabytes by adding an expansion pak.
 // The hidden ninth bit is used by the anti-aliasing and z-buffering hardware.
 namespace RDram {
 	char ram[MEMORY_END];
