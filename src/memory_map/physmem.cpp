@@ -1,4 +1,3 @@
-#include <sstream>
 #include "physmem.hpp"
 #include "../cpu/interpreter/err.hpp"
 #include "pak.hpp"
@@ -10,6 +9,7 @@
 #include "vi/vi.hpp"
 #include "mi/mi.hpp"
 #include "sp/sp.hpp"
+#include <sstream>
 
 // Exception-vectors: Memory addresses that the processor jumps to when an exception occurs.
 // -----------------------------------------------------------------------------------------
