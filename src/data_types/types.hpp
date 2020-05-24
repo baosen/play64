@@ -13,10 +13,11 @@ typedef uint64_t u64;
 
 typedef unsigned int uint;
 
-typedef int64_t Dword; // 64-bit Double word.
-typedef int32_t Word;  // 32-bit word.
-typedef int16_t Halfword; // 16-bit half-word.
-typedef char    Byte; // 8-bit byte.
+// MIPS data types:
+typedef int64_t Dword;    // Double word. 64-bit.
+typedef int32_t Word;     // Word. 32-bit.
+typedef int16_t Halfword; // Half-word. 16-bit.
+typedef char    Byte;     // Byte. 8-bit.
 
 #define rcast reinterpret_cast
 #define scast static_cast

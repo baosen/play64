@@ -1,7 +1,6 @@
 #include <iostream>
 #include "vi.hpp"
 #include "../mi/mi.hpp"
-#include "framebuffer.h"
 using namespace std;
 
 #define NREGS 14
@@ -10,12 +9,12 @@ using namespace std;
 namespace {
     Word line = 0;
     Word xscale = 1, yscale = 1; // is a fixed/float?
+    Word fbaddr;
 }
 
 // Video DAC-interface.
 namespace Vi {
     void reset() { 
-        framebuffer::get_instance().set_framebuffer_address(0);
         line = 0;
     }
 
@@ -40,13 +39,13 @@ namespace Vi {
 
 // Framebuffer origin DRAM address:
     RD(origin) {
-        return framebuffer::get_instance().get_framebuffer_address();
+        return fbaddr;
     }
 
 // Sets the memory address of the currently used framebuffer.
 // Usually used to implement double buffering.
     WR(origin) { // Framebuffer physical memory address that points to the origin.
-        framebuffer::get_instance().set_framebuffer_address(val);
+        fbaddr = val;
         printf("[VI] Framebuffer-address: %08x\n", val);
     }
 
