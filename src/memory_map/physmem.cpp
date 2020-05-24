@@ -10,7 +10,6 @@
 #include "vi/vi.hpp"
 #include "mi/mi.hpp"
 #include "sp/sp.hpp"
-using namespace std;
 
 // Exception-vectors: Memory addresses that the processor jumps to when an exception occurs.
 // -----------------------------------------------------------------------------------------
@@ -138,8 +137,8 @@ namespace Physmem {
         // Game Pak (cartridge).
         MAP_READ_RANGE(0x10000000, DOMAIN_SIZE, Pak, rom)
 
-        stringstream ss;
-        ss << "Read to unknown physical address: 0x" << hex << paddr;
+        std::stringstream ss;
+        ss << "Read to unknown physical address: 0x" << std::hex << paddr;
         throw err(ss.str());
     }
 
@@ -240,8 +239,8 @@ namespace Physmem {
         // Serial-interface:
         MAP_WRITE_SINGLE(0x4800018, Si, status)
 
-        stringstream ss;
-        ss << "Wrote " << hex << val << " to unknown physical address: 0x" << hex << paddr;
+        std::stringstream ss;
+        ss << "Wrote " << std::hex << val << " to unknown physical address: 0x" << std::hex << paddr;
         throw err(ss.str());
     }
 
