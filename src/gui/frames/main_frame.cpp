@@ -120,7 +120,7 @@ DCMDU(MainFrame, Execute) {
         // De-select current instruction.
         disassembler->deselect(Cpu::pc);
 
-        // Run the game.
+        // Run the game step-by-step full speed ahead!
         for (;;)
             Interpreter::step();
 
