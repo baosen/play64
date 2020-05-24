@@ -168,6 +168,8 @@ namespace Physmem {
         }
         // RDram's registers:
         MAP_WRITE_RANGE(0x3f00000, 0xFFFFF, RDregs, regs)
+
+        // Reality signal processor:
         MAP_WRITE_RANGE(0x4000000, SP_MEMSIZE, Sp, dmem)
         MAP_WRITE_RANGE(0x4001000, SP_MEMSIZE, Sp, imem)
         MAP_WRITE_ANY_SINGLE(0x404001C, Sp, semaphore)
