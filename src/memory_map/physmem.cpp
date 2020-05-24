@@ -182,7 +182,7 @@ namespace Physmem {
         MAP_WRITE_SINGLE(0x430000C, Mi, intr_mask)
 
         // PIF (Joychannel) RAM inside the PIF-chip:
-        const size_t PIF_RAM_SIZE = 0x3F;
+        #define PIF_RAM_SIZE 0x3F
         MAP_WRITE_RANGE(0x1FC007C0, PIF_RAM_SIZE, Pif, pifram)
 
         // Video-interface:
