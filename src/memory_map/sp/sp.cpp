@@ -4,7 +4,7 @@ using namespace std;
 
 // The memory addresses to the devices connected to the address bus.
 enum {
-    DMEM = 0, /* RSP processor's data memory containing the task header. */
+    DMEM = 0, // RSP processor's data memory containing the task header. Can be accessed by both RSP and RDP through the XBUS.
     // The task header is loaded in here.
 
     IMEM = 0x1000, /* RSP processor's instruction memory containing RSP instructions. */
@@ -21,10 +21,15 @@ enum {
     SEMAPHORE = 0x4001C, // SP semaphore (test and set).
 
     PC = 0x80000, // SP program counter.
-    IBIST = 0x80004, // SP IMEM BIST.
+    IBIST = 0x80004, // SP IMEM built-in self test (BIST).
 };
 
-// Signal processor, a scalar- and vector-processor.
+// Reality Signal processor, which is a reduced MIPS III architected processor containing:
+// - A reduced scalar unit-processor that is incompatible with a normal one.
+// - A reduced MIPS system controller processor as co-processor 0 (COP0) that is incompatible with a normal one.
+// - No floating-point co-processor 1 (COP1).
+// - An unique non-disclosed proprietary vector unit-processor as co-processor 2 (COP2).
+// It is used as a "shader" and "audio"-processor.
 namespace {
 	s64 regs[32];  // Scalar-unit registers.
     u32 segid[16]; // The RSP can store and index 16 base addresses.
@@ -56,9 +61,6 @@ namespace {
     // TODO: Use the 16 segment addressing to physical address scheme...
 }
 
-// RSP is a MIPS-like vector processor with COP0 and COP2 (no COP1)
-// used as a "shader" and "audio"-processor.
-//
 // RSP memory callback functions mapped to the RSP's address space.
 namespace Sp { 
     char imem[SP_MEMSIZE] = {0}, // Instruction memory.

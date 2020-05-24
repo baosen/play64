@@ -77,16 +77,20 @@ namespace Sram {
     }
 }
 
+// Physical memory.
+// The CPU access all connected devices through this memory interface.
 namespace Physmem {
     // Reads and returns the 32-bit word pointed by the given physical address.
     // - paddr: Physical memory address.
     u32 rd32(const memory_address paddr) {
-        // RDram:
+        // Main random access memory storage (RDRAM):
 	    if (paddr <= 0x3fffff)
             return *(u32*)(RDram::ram+paddr);
         if (0x400000 <= paddr && paddr <= 0x3EFFFFF)
             return 0;
         MAP_READ_RANGE(0x3f00000, 0xFFFFF, RDregs, regs)
+
+        // Reality signal processor:
         MAP_READ_RANGE(0x4000000, SP_MEMSIZE, Sp, dmem)
         MAP_READ_RANGE(0x4001000, SP_MEMSIZE, Sp, imem)
 
@@ -104,7 +108,7 @@ namespace Physmem {
         MAP_READ_SINGLE(0x4040010, Sp, status)
         MAP_READ_SINGLE_VAR(0x4080000, Sp, pc)
 
-        // Peripherals (PI):
+        // Peripheral-interface (PI):
         MAP_READ_SINGLE(0x4600010, Pi, status)
         MAP_READ_SINGLE(0x4600014, Pi, bsd_dom1_lat)
         MAP_READ_SINGLE(0x4600018, Pi, bsd_dom1_pwd)
