@@ -31,9 +31,9 @@ namespace Vmem {
         // TODO: Check if we are running in kernel mode.
 
         // 32-bit virtual addresses permitted when running in kernel mode.
-    	MAP_RANGE(0x80000000, 0x9fffffff, vaddr & 0x1fffffff) // KSEG0: Cached.   Kernel address space directly mapped to physical address 0x00000000 - 0x7FFFFFFF.
-    	MAP_RANGE(0xa0000000, 0xbfffffff, vaddr & 0x1fffffff) // KSEG1: Uncached. Kernel address space directly mapped to physical address 0x00000000 - 0x7FFFFFFF.
-        MAP_RANGE(0xc0000000, 0xffffffff, Tlb::map(vaddr))    // KSSEG and KSEG3: TLB mapped.
+    	MAP_RANGE(0x80000000, 0x9fffffff, vaddr & 0x1fffffff) // 0x8: KSEG0: Cached.   Kernel address space mapped to cached memory of physical address 0x00000000 - 0x7FFFFFFF.
+    	MAP_RANGE(0xa0000000, 0xbfffffff, vaddr & 0x1fffffff) // 0xa: KSEG1: Uncached. Kernel address space directly mapped to physical address 0x00000000 - 0x7FFFFFFF.
+        MAP_RANGE(0xc0000000, 0xffffffff, Tlb::map(vaddr))    // 0xc: KSSEG and KSEG3: TLB mapped.
 
         // Throw if accessing virtual address outside address space.
 	    stringstream ss;
