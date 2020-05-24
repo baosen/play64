@@ -161,26 +161,17 @@ namespace Physmem {
     // - paddr: Physical memory address.
     // - val: 32-bit word value to write to the physical address given.
     void wr32(const memory_address paddr, const u32 val) {
-        //
-        // RDRAM
-        //
-
         // RDram address range for its random access memory space:
 	    if (paddr <= 0x3fffff) {
             *(u32*)(RDram::ram+paddr) = val;
             return;
         }
-
         // RDram's registers:
         MAP_WRITE_RANGE(0x3f00000, 0xFFFFF, RDregs, regs)
         MAP_WRITE_RANGE(0x4000000, SP_MEMSIZE, Sp, dmem)
         MAP_WRITE_RANGE(0x4001000, SP_MEMSIZE, Sp, imem)
         MAP_WRITE_ANY_SINGLE(0x404001C, Sp, semaphore)
         MAP_WRITE_SINGLE(0x4040010, Sp, status)
-
-        //
-        // Peripherals.
-        //
 
         // The MIPS-controller interface between the CPU and the RCP.
         MAP_WRITE_SINGLE(0x4300000, Mi, mode)
