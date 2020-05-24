@@ -15,12 +15,11 @@ VideoOutput::VideoOutput(wxWindow* parent)
 void VideoOutput::OnPaint(wxPaintEvent& WXUNUSED(event))
 {
     SetCurrent(*m_opengl_context);
-    wxPaintDC dc(this);
 
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT);
-
     /*
+
     glViewport(0, 0, (GLint)GetSize().x, (GLint)GetSize().y);
 
     glBegin(GL_POLYGON);
@@ -42,7 +41,7 @@ void VideoOutput::OnPaint(wxPaintEvent& WXUNUSED(event))
     glEnd();
 
     glFlush();
-    */
 
+    */
     SwapBuffers();
 }
