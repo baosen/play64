@@ -3,7 +3,7 @@
 #include "dbg.hpp"
 #include "id.hpp"
 #include "../cpu/interpreter/instrsz.hpp"
-#include "../memory_map/vmem.hpp"
+#include "../memory_map/virtual_memory/vmem.hpp"
 #include "../disassembler/decode.hpp"
 using namespace std;
 

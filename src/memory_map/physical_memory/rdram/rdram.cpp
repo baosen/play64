@@ -1,6 +1,6 @@
 #include "rdram.hpp"
-#include "../../cpu/interpreter/err.hpp"
-#include "../mem.hpp"
+#include "../../../cpu/interpreter/err.hpp"
+#include "../../mem.hpp"
 
 // RDRAM Registers (0x03f00000 .. 0x03ffffff).
 //enum {

@@ -12,8 +12,8 @@ find_package(wxWidgets COMPONENTS core base aui gl REQUIRED)
 include(${wxWidgets_USE_FILE})
 
 set(SRC
-        src/memory_map/ai/ai.cpp
-        src/memory_map/ai/ai.hpp
+        src/memory_map/physical_memory/ai/ai.cpp
+        src/memory_map/physical_memory/ai/ai.hpp
         src/aligned.hpp
         src/gui/app.cpp
         src/cli/args.cpp
@@ -22,7 +22,7 @@ set(SRC
         src/memory_map/byteswap.cpp
         src/memory_map/byteswap.hpp
         src/cartridge/ccode.hpp
-        src/memory_map/si/pif/cic.cpp
+        src/memory_map/physical_memory/si/pif/cic.cpp
         src/gui/cmd.hpp
         src/cli/cmdparams.cpp
         src/cli/cmdparams.hpp
@@ -77,44 +77,44 @@ set(SRC
         src/memory_map/memmacros.hpp
         src/gui/menu.cpp
         src/gui/menu.hpp
-        src/memory_map/mi/mi.cpp
-        src/memory_map/mi/mi.hpp
+        src/memory_map/physical_memory/mi/mi.cpp
+        src/memory_map/physical_memory/mi/mi.hpp
         src/cpu/interpreter/normals/normals.cpp
         src/cpu/interpreter/normals/normals.hpp
         src/cpu/interpreter/normals/normalsstr.cpp
         src/cpu/interpreter/normals/normalsstr.hpp
         src/cpu/interpreter/op.hpp
-        src/memory_map/pak.cpp
-        src/memory_map/pak.hpp
+        src/memory_map/physical_memory/cart/pak.cpp
+        src/memory_map/physical_memory/cart/pak.hpp
         src/cpu/interpreter/pc.hpp
         src/gui/periph.cpp
         src/gui/periph.hpp
-        src/memory_map/physmem.cpp
-        src/memory_map/physmem.hpp
-        src/memory_map/pi/pi.cpp
-        src/memory_map/pi/pi.hpp
-        src/memory_map/si/pif/pif.cpp
-        src/memory_map/si/pif/pif.hpp
+        src/memory_map/physical_memory/physmem.cpp
+        src/memory_map/physical_memory/physmem.hpp
+        src/memory_map/physical_memory/pi/pi.cpp
+        src/memory_map/physical_memory/pi/pi.hpp
+        src/memory_map/physical_memory/si/pif/pif.cpp
+        src/memory_map/physical_memory/si/pif/pif.hpp
         src/cli/printstep.cpp
         src/cli/printstep.hpp
-        src/memory_map/rdram/rdram.cpp
-        src/memory_map/rdram/rdram.hpp
+        src/memory_map/physical_memory/rdram/rdram.cpp
+        src/memory_map/physical_memory/rdram/rdram.hpp
         src/cpu/interpreter/regimms/regimms.cpp
         src/cpu/interpreter/regimms/regimmsstr.cpp
         src/cpu/interpreter/regimms/regimmsstr.hpp
         src/cpu/interpreter/registers/register.hpp
         src/gui/list_views/regs.cpp
         src/gui/list_views/regs.hpp
-        src/memory_map/ri/ri.cpp
-        src/memory_map/ri/ri.hpp
+        src/memory_map/physical_memory/ri/ri.cpp
+        src/memory_map/physical_memory/ri/ri.hpp
         src/cpu/interpreter/sext.cpp
         src/cpu/interpreter/sext.hpp
-        src/memory_map/si/si.cpp
-        src/memory_map/si/si.hpp
+        src/memory_map/physical_memory/si/si.cpp
+        src/memory_map/physical_memory/si/si.hpp
         src/signal.cpp
         src/signal.hpp
-        src/memory_map/sp/sp.cpp
-        src/memory_map/sp/sp.hpp
+        src/memory_map/physical_memory/sp/sp.cpp
+        src/memory_map/physical_memory/sp/sp.hpp
         src/cpu/interpreter/specials/specials.cpp
         src/cpu/interpreter/specials/specials.hpp
         src/cpu/interpreter/specials/specialsstr.cpp
@@ -134,12 +134,12 @@ set(SRC
         src/cli/trace.cpp
         src/cli/trace.hpp
         src/data_types/types.hpp
-        src/memory_map/vi/vi.cpp
-        src/memory_map/vi/vi.hpp
+        src/memory_map/physical_memory/vi/vi.cpp
+        src/memory_map/physical_memory/vi/vi.hpp
         src/gui/list_views/viview.cpp
         src/gui/list_views/viview.hpp
-        src/memory_map/vmem.cpp
-        src/memory_map/vmem.hpp
+        src/memory_map/virtual_memory/vmem.cpp
+        src/memory_map/virtual_memory/vmem.hpp
         src/memory_map/mips_exception_handlers.hpp
         src/logging/log.cpp src/logging/log.hpp src/gui/VideoOutput.h src/gui/VideoOutput.cpp)
 

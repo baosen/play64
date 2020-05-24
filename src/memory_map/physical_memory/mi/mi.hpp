@@ -1,6 +1,6 @@
 #pragma once
-#include "../../data_types/types.hpp"
-#include "../memmacros.hpp"
+#include "../../../data_types/types.hpp"
+#include "../../memmacros.hpp"
 
 // MIPS interface.
 namespace Mi {

@@ -1,9 +1,9 @@
 #include <iostream>
 #include "mi.hpp"
-#include "../../cpu/cop0/syscon.hpp"
-#include "../../cpu/interpreter/registers/cpu.hpp"
-#include "../../cpu/interpreter/err.hpp"
-#include "../mips_exception_handlers.hpp"
+#include "../../../cpu/cop0/syscon.hpp"
+#include "../../../cpu/interpreter/registers/cpu.hpp"
+#include "../../../cpu/interpreter/err.hpp"
+#include "../../mips_exception_handlers.hpp"
 using namespace std;
 using namespace System_control;
 

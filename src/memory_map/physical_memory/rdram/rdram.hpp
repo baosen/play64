@@ -1,5 +1,5 @@
 #pragma once
-#include "../../data_types/types.hpp"
+#include "../../../data_types/types.hpp"
 
 namespace RDram {
 	extern char ram[];

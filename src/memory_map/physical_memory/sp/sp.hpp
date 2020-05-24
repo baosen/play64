@@ -1,6 +1,6 @@
 #pragma once
-#include "../../data_types/types.hpp"
-#include "../memmacros.hpp"
+#include "../../../data_types/types.hpp"
+#include "../../memmacros.hpp"
 
 #define SP_MEMSIZE 0x1000
 

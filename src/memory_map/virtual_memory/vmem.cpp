@@ -1,6 +1,6 @@
-#include "../cpu/tlb/tlb.hpp"
-#include "physmem.hpp"
-#include "../cpu/interpreter/err.hpp"
+#include "../../cpu/tlb/tlb.hpp"
+#include "../physical_memory/physmem.hpp"
+#include "../../cpu/interpreter/err.hpp"
 #include <iomanip>
 
 // MIPS virtual memory.

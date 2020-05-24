@@ -1,8 +1,8 @@
 #include "../mi/mi.hpp"
 #include "../rdram/rdram.hpp"
-#include "../pak.hpp"
-#include "../mem.hpp"
-#include "../../logging/log.hpp"
+#include "../cart/pak.hpp"
+#include "../../mem.hpp"
+#include "../../../logging/log.hpp"
 #include <iostream>
 
 // The DMA engine to DMA (copy asynchronously) data between RAM and game cartridge.

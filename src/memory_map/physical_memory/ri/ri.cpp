@@ -1,4 +1,4 @@
-#include "../mem.hpp"
+#include "../../mem.hpp"
 #include "ri.hpp"
 
 // RDRAM interface (RI): Used to control the RDRAM behaviour.

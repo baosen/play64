@@ -1,11 +1,11 @@
 #include <cassert>
 #include <cstring>
 #include "pak.hpp"
-#include "../cpu/interpreter/interp.hpp"
-#include "physmem.hpp"
-#include "sp/sp.hpp"
-#include "byteswap.hpp"
-#include "../cpu/interpreter/err.hpp"
+#include "../../../cpu/interpreter/interp.hpp"
+#include "../physmem.hpp"
+#include "../sp/sp.hpp"
+#include "../../byteswap.hpp"
+#include "../../../cpu/interpreter/err.hpp"
 using namespace std;
 
 namespace {

@@ -1,9 +1,9 @@
 #include <iostream>
 #include "ai.hpp"
 #include "../mi/mi.hpp"
-#include "../mem.hpp"
+#include "../../mem.hpp"
 #include "../rdram/rdram.hpp"
-#include "../../cpu/interpreter/err.hpp"
+#include "../../../cpu/interpreter/err.hpp"
 using namespace std;
 
 /* AI Registers. */

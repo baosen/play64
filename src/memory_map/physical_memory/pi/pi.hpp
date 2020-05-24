@@ -1,5 +1,5 @@
-#include "../../data_types/types.hpp"
-#include "../memmacros.hpp"
+#include "../../../data_types/types.hpp"
+#include "../../memmacros.hpp"
 
 // Parallel interface.
 namespace Pi {

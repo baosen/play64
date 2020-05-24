@@ -1,5 +1,5 @@
 #pragma once
-#include "memaddr.hpp"
+#include "../memaddr.hpp"
 
 namespace Vmem {
     memory_address map(const memory_address vaddr);

@@ -4,7 +4,7 @@
 #include "registers/cpu.hpp"
 #include "../../cartridge/ccode.hpp"
 #include "instr.hpp"
-#include "../../memory_map/vmem.hpp"
+#include "../../memory_map/virtual_memory/vmem.hpp"
 #include "../../disassembler/disassembly.hpp"
 #include "../tlb/tblsize.hpp"
 
