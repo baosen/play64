@@ -180,7 +180,8 @@ namespace Physmem {
         MAP_WRITE_SINGLE(0x430000C, Mi, intr_mask)
 
         // PIF (Joychannel) RAM inside the PIF-chip:
-	    MAP_WRITE_RANGE(0x1FC007C0, 0x3F, Pif, pifram)
+        const size_t PIF_RAM_SIZE = 0x3F;
+        MAP_WRITE_RANGE(0x1FC007C0, PIF_RAM_SIZE, Pif, pifram)
 
         // Video-interface:
         MAP_WRITE_SINGLE(0x4400000, Vi, control)
