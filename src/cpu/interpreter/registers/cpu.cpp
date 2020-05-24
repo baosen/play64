@@ -45,10 +45,15 @@
 namespace {
     memory_address old_pc = ENTRY_POINT;
 
+	// Convert 64-bit value to 16-bit value.
     s16 c64to16(const s64 val) { return val & 0xffff; }
+	// Convert 64-bit value to 32-bit value.
     s32 c64to32(const s64 val) { return val & 0xffffffff; }
+	// Convert 32-bit value to 64-bit value.
     s64 c32to64(const s32 val) { return val & 0xffffffff; }
+	// Convert 16-bit value to 64-bit value.
     s64 c16to64(const s16 val) { return val & 0xffff; }
+	// Convert 8-bit value to 64-bit value.
     s64 c8to64(const unsigned int val) { return val & 0xff; }
 
     // Check if the caller is trying to access a register that does exist.
@@ -309,7 +314,7 @@ namespace Cpu {
     	pc += INSTR_SIZE;
     }
     
-    // Revert to the old program counter-value.
+    // Revert to the old program counter-value used for internal debugging purposes.
     void revert() { 
         pc = old_pc;
     }
