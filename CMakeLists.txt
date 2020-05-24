@@ -68,7 +68,6 @@ set(SRC
         src/cpu/interpreter/instrsz.hpp
         src/cpu/interpreter/interp.cpp
         src/cpu/interpreter/interp.hpp
-        src/memory_map/macros.hpp
         src/cartridge/manufacts.cpp
         src/cartridge/manufacts.hpp
         src/memory_map/mem.cpp

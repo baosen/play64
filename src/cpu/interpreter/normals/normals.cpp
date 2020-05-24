@@ -1,13 +1,13 @@
-#include <cassert>
 #include "../registers/register.hpp"
 #include "../interp.hpp"
 #include "../err.hpp"
-#include "../../../memory_map/macros.hpp"
 #include "../../../disassembler/strings.hpp"
 #include "../sext.hpp"
-using namespace std;
+#include <cassert>
 using namespace Cpu;
 using namespace Interpreter;
+
+#define VADDR  get64(instr.base()) + sext16(instr.offset())
 
 INSTR(special);
 INSTR(regimm);
