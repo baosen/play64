@@ -7,18 +7,29 @@
 namespace Sp {
     RD(mem_addr);
     WR(mem_addr);
+
     RD(dram_addr);
     WR(dram_addr);
+
     RD(rd_len);
     WR(rd_len); 
+
     RD(wr_len);
     WR(wr_len);
+
     RD(status);
     WR(status);
+
     RD(dma_full);
+
     RD(dma_busy);
+
     RD(semaphore);
     WRANY(semaphore);
+
+    RD(pc);
+    WR(pc);
+
     RD(ibist);
 
     extern char imem[SP_MEMSIZE];

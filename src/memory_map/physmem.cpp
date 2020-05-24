@@ -91,8 +91,12 @@ namespace Physmem {
         MAP_READ_RANGE(0x3f00000, 0xFFFFF, RDregs, regs)
 
         // Reality signal processor:
+        // - Data memory:
         MAP_READ_RANGE(0x4000000, SP_MEMSIZE, Sp, dmem)
+        // - Instruction memory:
         MAP_READ_RANGE(0x4001000, SP_MEMSIZE, Sp, imem)
+        // - Program counter:
+        MAP_READ_SINGLE(0x4080000, Sp, pc)
 
         // MIPS (MI) controller:
         MAP_READ_SINGLE(0x4300000, Mi, mode)

@@ -171,6 +171,15 @@ namespace Sp {
     }
     // (R): [0] semaphore flag (set on read). (W): [any bit] clear semaphore flag.
 
+    // RSP's program counter.
+    RD(pc) {
+        return pc;
+    }
+    WR(pc) {
+        // bao: can you actually write to RSP's program counter?
+        std::cout << "[SP] Wrote " << pc << "to RSP's program counter!" << std::endl;
+    }
+
     // Instruction memory's (IMEM) built-in self test.
     RD(bist) { 
         return bist; 
