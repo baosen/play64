@@ -44,13 +44,13 @@ namespace {
     u32 rdlen = 0; // Read length (+1?) in bytes.
     // (RW): [11:0] length
     //       [19:12] count
-    //       [31:20] skip                 
+    //       [31:20] skip (stride)
     //       direction: I/DMEM <- RDRAM
 
     u32 wrlen = 0; // Write length (+1?) in bytes.
     // (RW): [11:0] length
     //       [19:12] count
-    //       [31:20] skip                 
+    //       [31:20] skip (stride)
     //       direction: I/DMEM -> RDRAM
 
     u32 stat = 1; // STATUS-register.
