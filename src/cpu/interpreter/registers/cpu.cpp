@@ -184,7 +184,8 @@ namespace {
     	}
     }
 
-    // Do the job the boot code in the PIF ROM does.
+    // Emulates the PIF Boot ROM code, which is the entry code that gets executed when the Nintendo 64 powers on and resets. The code resides in a ROM in the PIF.
+	// This function basically does the job the boot code in the PIF ROM does to the system. We don't execute the real PIF Boot ROM code in this emulator.
     void pifboot(const country_code code, // Specifies the specific PIF Boot code revision made for a specific country region. The boot code is contained in the PIF ROM installed onto the country region's hardware revision of the Nintendo 64 motherboard.
 				 const Cic cic_type)	  // Which CIC-chip that the Game Pak (Cartridge) contains.
 	{
