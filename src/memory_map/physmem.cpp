@@ -18,7 +18,8 @@ using namespace std;
 // 0x80000080: bad 64bit virtual address, which you can't throw since most games run locked in 32bit address mode. (extended tlb miss).
 // 0x80000100: cache miss.
 // 0x80000180: general exception vector.
-#define EXC_SIZE 0x80 /* Size of an exception vector. */
+
+const size_t EXCEPTION_VECTOR_SIZE = 0x80;
 
 // The video interface is write-only. It supports only DMA from RDRAM to a specific video buffer address 
 // and allows you to change video modes and configurations.
@@ -26,7 +27,7 @@ using namespace std;
 // The audio interface is write-only. It connects to the Audio DAC. 
 // It supports only DMA from RDRAM to a specific audio buffer address and allows you to set the audio frequency.
 
-#define MEGABYTE 1024*1000
+const size_t MEGABYTE = 1024 * 1000;
 
 // http://level42.ca/projects/ultra64/Documentation/man/pro-man/pro08/index.html
 
