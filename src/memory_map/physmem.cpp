@@ -101,7 +101,9 @@ namespace Physmem {
         // MIPS (MI) controller:
         MAP_READ_SINGLE(0x4300000, Mi, mode)
         // Version number of the MI controller:
-        MAP_READ_SINGLE_CONSTANT(0x4300004, 0x01010101) // All parts are of version 1. Newer consoles use 0x02020202 for version 2.
+        #define MIPS_VERSION_1_NUMBER 0x01010101 // Old consoles use version 1.
+        #define MIPS_VERSION_2_NUMBER 0x02020202 // Newer consoles use for version 2.
+        MAP_READ_SINGLE_CONSTANT(0x4300004, MIPS_VERSION_1_NUMBER)
         MAP_READ_SINGLE(0x4300008, Mi, intr)
         MAP_READ_SINGLE(0x430000C, Mi, intr_mask)
 
