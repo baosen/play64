@@ -12,13 +12,6 @@
 // - KSSEG/KSEG2: Kernel supervisor segment/segment 2.
 // - KSEG3: Kernel segment 3.
 // The 64-bit address space are not used by any Nintendo 64 games.
-//
-// Exception-vectors:
-// - 0x80000000: bad virtual address (TLB miss).
-// - 0x80000080: bad 64bit virtual address, which you can't throw since locked in 32bit address mode. (extended tlb miss)
-// - 0x80000100: cache miss
-// - 0x80000180: general exception vector
-#define EXC_SIZE 0x80 /* Size of an exception vector. */
 
 #define MAP_RANGE(begin, end, expr) \
     else if (begin <= vaddr && vaddr <= end) \

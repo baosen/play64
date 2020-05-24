@@ -11,15 +11,6 @@
 #include "sp/sp.hpp"
 #include <sstream>
 
-// Exception-vectors: Memory addresses that the processor jumps to when an exception occurs.
-// -----------------------------------------------------------------------------------------
-// 0x80000000: bad virtual address (TLB miss).
-// 0x80000080: bad 64bit virtual address, which you can't throw since most games run locked in 32bit address mode. (extended tlb miss).
-// 0x80000100: cache miss.
-// 0x80000180: general exception vector.
-
-const size_t EXCEPTION_VECTOR_SIZE = 0x80;
-
 // The video interface is write-only. It supports only DMA from RDRAM to a specific video buffer address 
 // and allows you to change video modes and configurations.
 
