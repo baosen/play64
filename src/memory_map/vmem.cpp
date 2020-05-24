@@ -2,11 +2,11 @@
 #include "../cpu/tlb/tlb.hpp"
 #include "physmem.hpp"
 #include "../cpu/interpreter/err.hpp"
-using namespace std;
 
 // MIPS virtual memory.
 // --------------------
-// The VR4300 supports the 32-bit KUSEG, KSEG0, KSEG1, KSSEG/KSEG2 and KSEG3 virtual address space defined by MIPS and the 64-bit address space not used by any Nintendo 64 games.
+// The VR4300 supports the 32-bit KUSEG, KSEG0, KSEG1, KSSEG/KSEG2 and KSEG3 virtual address space defined by MIPS.
+// The 64-bit address space are not used by any Nintendo 64 games.
 //
 // Exception-vectors:
 // 0x80000000: bad virtual address (TLB miss).
@@ -36,8 +36,8 @@ namespace Vmem {
         MAP_RANGE(0xc0000000, 0xffffffff, Tlb::map(vaddr))    // 0xc: KSSEG and KSEG3: TLB mapped.
 
         // Throw if accessing virtual address outside address space.
-	    stringstream ss;
-	    ss << "Unknown virtual address mapping: 0x" << hex << vaddr;
+	    std::stringstream ss;
+	    ss << "Unknown virtual address mapping: 0x" << std::hex << vaddr;
 	    throw Vmem_err(ss.str());
     }
 
