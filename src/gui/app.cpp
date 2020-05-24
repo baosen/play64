@@ -7,9 +7,7 @@ public:
 
 bool App::OnInit()
 {
-    auto main_frame = new MainFrame();
-    main_frame->Show(true);
-    return true;
+    return (new MainFrame())->Show(true);
 }
 
 wxIMPLEMENT_APP(App);
