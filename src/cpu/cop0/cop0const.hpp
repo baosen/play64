@@ -12,7 +12,7 @@ enum C0 {
     EntryLo1, // TLB: Read and write the "odd" page mapped by the TLB.
     Context,  // Exception:
     PageMask, // TLB: Holds the comparison mask that sets the page size for each TLB entry.
-    Wired,    // TLB:
+    Wired,    // TLB: The Wired register is a read/write register that specifies the boundary between the wired and random entries of the TLB.
 
 ////////////////
 	RESERVED1, 

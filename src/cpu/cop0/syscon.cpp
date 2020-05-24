@@ -4,8 +4,9 @@
 static const int NUMBER_OF_COP0_REGISTERS = 32;
 
 // MIPS System control co-processor (COP0).
-// --------------------------------
+// ---------------------------------------
 // Controls the computer system. It is usually used by operating system software.
+// This is where the TLB is stored and processed.
 namespace System_control {
 	Dword cp0[NUMBER_OF_COP0_REGISTERS];
 
@@ -13,6 +14,7 @@ namespace System_control {
     void reset() {
         // Set the RANDOM-register to make the TLB Begin filling the 31st TLB entry.
 	    cp0[Random]   = 31;
+        cp0[Wired]    = 0; // specifies the boundary between Random and Wired entries.
 
         // Initialize the registers with the value the CIC-chip would set those registers to.
 	    cp0[Count]    = 0x5000;
@@ -32,13 +34,20 @@ namespace System_control {
     		throw err("Trying to access COP0-register that does not exist!");
     }
 
-	// Get the ith coprocessor 0 register and return the 64-bit bits.
+	// Gets a coprocessor 0 register and return the 64-bit bits.
     Dword get64(const uint i) {
     	inbounds(i);
-    	return cp0[i];
+
+        switch (i) {
+        case Wired:
+            return cp0[i] & 0x1F; // only the five low-order bits are used.
+        default:
+            warn("Unknown COP0 register " + std::to_string(i) + " read!");
+            return cp0[i];
+        }
     }
 
-	// Set the ith coprocessor 0 register with 64-bit value.
+	// Set a co-processor 0 register with a 64-bit value.
     void set64(const uint i, const Dword val) {
         // Check if accessing a valid register.
     	inbounds(i);
