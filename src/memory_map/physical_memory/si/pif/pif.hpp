@@ -10,6 +10,12 @@
  *	1FC00000	+-------+-----------------+-----+
  **/
 
+// The Boot ROM contains the code that gets executed first on power-on and reset.
+// This code is different for different regions and versions of this console.
+//
+// After the Boot ROM has been executed where the code jumps to the game code,
+// the Boot ROM data won't be accessible anymore.
+
 // At 0x1FC0 07C4-07c5 is the status of the controller, each bit is 1 when the button is mashed, 0 otherwise.
 // 07C4 (HALFWORD - 16 BITS) = STATUS OF CONTROLLER
 //  %X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X
