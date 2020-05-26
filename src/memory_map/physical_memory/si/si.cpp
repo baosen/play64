@@ -3,7 +3,7 @@
 using namespace std;
 
 // SI: Serial interface
-// Used to communicate with the controller combined with the PIF.
+// Used to communicate via the PIF to the PIF's Boot ROM and the controller.
 
 // SI DRAM address (R/W): [23:0] starting RDRAM address.
 #define SI_DRAM_ADDR_REG SI_BASE_REG // R0: DRAM address.

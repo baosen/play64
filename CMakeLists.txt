@@ -114,6 +114,8 @@ set(SRC
         src/signal.hpp
         src/memory_map/physical_memory/sp/sp.cpp
         src/memory_map/physical_memory/sp/sp.hpp
+        src/memory_map/physical_memory/dp/dp.cpp
+        src/memory_map/physical_memory/dp/dp.h
         src/cpu/interpreter/specials/specials.cpp
         src/cpu/interpreter/specials/specials.hpp
         src/cpu/interpreter/specials/specialsstr.cpp
