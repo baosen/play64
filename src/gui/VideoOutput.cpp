@@ -18,6 +18,14 @@ void VideoOutput::OnPaint(wxPaintEvent& WXUNUSED(event))
 
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT);
+
+    // TODO:
+    // - Create OpenGL framebuffer.
+    // - Copy framebuffer in RDRAM to OpenGL framebuffer.
+    // - Display it somehow?
+    // -- Create a texture.
+    // -- Display texture?
+
     /*
 
     glViewport(0, 0, (GLint)GetSize().x, (GLint)GetSize().y);
