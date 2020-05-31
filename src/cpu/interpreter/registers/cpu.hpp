@@ -1,7 +1,6 @@
 #pragma once
 #include "../../../cartridge/ccode.hpp"
 #include "../../../memory_map/memaddr.hpp"
-#include "../../../data_types/types.hpp"
 
 #define NREGS 32 // The number of registers in the VR4300 MIPS III cpu.
 
@@ -22,16 +21,16 @@ namespace Cpu {
 	void revert();
 
 // Returns the content of GPR i.
-	s64 get64(const uint reg);
-	s32 get32(const uint reg);
-    s16 get16(const uint reg);
-    s8  get8(const uint reg);
+	int64_t get64(const uint reg);
+	int32_t get32(const uint reg);
+    int16_t get16(const uint reg);
+    int8_t  get8(const uint reg);
 
 // Set register i to the value specified.
-	void set64(const u64 i, const u64 val);
-	void set32(const u64 i, const s32 val);
-	void set16(const u64 i, const Halfword val);
-    void set8(const u64 i, const Byte val);
+	void set64(const uint64_t i, const uint64_t val);
+	void set32(const uint64_t i, const int32_t val);
+	void set16(const uint64_t i, const int16_t val);
+    void set8(const uint64_t i, const uint8_t val);
 
 // Increment program counter.
 	void incpc(const s64 val);

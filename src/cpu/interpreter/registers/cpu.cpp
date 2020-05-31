@@ -46,18 +46,18 @@ namespace {
     memory_address old_pc = ENTRY_POINT;
 
 	// Convert 64-bit value to 16-bit value.
-    s16 c64to16(const s64 val) { return val & 0xffff; }
+    int16_t c64to16(const int64_t val) { return val & 0xffff; }
 	// Convert 64-bit value to 32-bit value.
-    s32 c64to32(const s64 val) { return val & 0xffffffff; }
+    int32_t c64to32(const int64_t val) { return val & 0xffffffff; }
 	// Convert 32-bit value to 64-bit value.
-    s64 c32to64(const s32 val) { return val & 0xffffffff; }
+    int64_t c32to64(const int32_t val) { return val & 0xffffffff; }
 	// Convert 16-bit value to 64-bit value.
-    s64 c16to64(const s16 val) { return val & 0xffff; }
+    int64_t c16to64(const int16_t val) { return val & 0xffff; }
 	// Convert 8-bit value to 64-bit value.
-    s64 c8to64(const unsigned int val) { return val & 0xff; }
+    int64_t c8to64(const unsigned int val) { return val & 0xff; }
 
     // Check if the caller is trying to access a register that does exist.
-    void check(const u64 i) {
+    void check(const uint64_t i) {
     	if (i > NREGS) throw err("Tried to access register > 32");
     }
 
@@ -229,8 +229,8 @@ namespace {
 
 // The state of the Nintendo 64's MIPS CPU.
 namespace Cpu {
-	s64 regs[NREGS] = {0}; // General purpose registers that are 64-bit.
-    s64 hi = 0,  	 	   // The HI-register.
+	int64_t regs[NREGS] = {0}; // General purpose registers that are 64-bit.
+    int64_t hi = 0,  	 	   // The HI-register.
         lo = 0;  	 	   // The LO-register.
 
 // Program counter: Points to the next instruction to be executed.
@@ -241,7 +241,7 @@ namespace Cpu {
 // The original MIPS architecture has several parallel pipelines each containing a PC that points to the instruction it is currently executing.
 
     // Set the value in register i.
-    void set64(const u64 i, const u64 val) {
+    void set64(const uint64_t i, const uint64_t val) {
     	check(i);
     	if (!i) 
             return;
@@ -250,7 +250,7 @@ namespace Cpu {
 
     // Sets the lower 32-bits value of the register.
     // Zeroes the rest.
-    void set32(const u64 i, const s32 val) {
+    void set32(const uint64_t i, const int32_t val) {
     	check(i);
     	if (!i) 
             return;
@@ -259,7 +259,7 @@ namespace Cpu {
 
     // Sets the lower 32-bits value of the register.
     // Zeroes the rest.
-    void set16(const u64 i, const Halfword val) {
+    void set16(const uint64_t i, const int16_t val) {
     	check(i);
     	if (!i) 
             return;
@@ -268,7 +268,7 @@ namespace Cpu {
 
     // Sets the lower 8-bits value of the register.
     // Zeroes the rest.
-    void set8(const u64 i, const Byte val) {
+    void set8(const uint64_t i, const uint8_t val) {
     	check(i);
     	if (!i) 
             return;
@@ -276,29 +276,29 @@ namespace Cpu {
     }
 
     // Returns the value in register i.
-    s64 get64(const uint i) {
+    int64_t get64(const unsigned int i) {
     	check(i);
     	return regs[i];
     }
 
     // Returns the lower 32-bits value of the register.
-    s32 get32(const uint i) {
+    int32_t get32(const unsigned int i) {
     	check(i);
     	return c64to32(regs[i]);
     }
     
     // Returns the lower 16-bits value of the register.
-    s16 get16(const uint i) {
+    int16_t get16(const unsigned int i) {
     	check(i);
     	return c64to16(regs[i]);
     }
 
-    s8 get8(const uint i) {
+    int8_t get8(const unsigned int i) {
         return get64(i) & 0xff;
     }
 
     // Increment the program counter with a value e.g pc += value;
-    void incpc(const s64 i) {
+    void incpc(const int64_t i) {
     	pc += i;
     }
 
