@@ -1,12 +1,11 @@
-#include <cassert>
-#include <cstring>
 #include "pak.hpp"
 #include "../../../cpu/interpreter/interp.hpp"
 #include "../physmem.hpp"
 #include "../sp/sp.hpp"
 #include "../../byteswap.hpp"
 #include "../../../cpu/interpreter/err.hpp"
-using namespace std;
+#include <cassert>
+#include <cstring>
 
 namespace {
     // Is game cartridge ROM loaded?
@@ -21,7 +20,7 @@ namespace {
     	fseek(fp, 0L, SEEK_END);
     	const auto sz = ftell(fp);
         if (sz < 0)
-            throw err(string("Failed to read length of file: ") + path);
+            throw err(std::string("Failed to read length of file: ") + path);
     	rewind(fp);
 
     	// Return the size/length of the file in bytes.
@@ -31,7 +30,7 @@ namespace {
     void close(FILE *fp, const char path[]) {
         assert(fp);
     	if (fclose(fp))
-    		throw err(string("Failed to close ROM file: ") + path);
+    		throw err(std::string("Failed to close ROM file: ") + path);
     }
 }
 
@@ -54,7 +53,7 @@ namespace Pak {
         // Open ROM.
         const auto fp = fopen(path, "rb");
         if (!fp)
-    		throw err(string("Failed to open file: ") + path);
+    		throw err(std::string("Failed to open file: ") + path);
         const auto l = len(fp, path);
 
         // Check if ROM is too large.
@@ -64,7 +63,7 @@ namespace Pak {
         // Load ROM into the memory.
         if (fread(rom, 1, l, fp) <= 0) {
             close(fp, path);
-    		throw err(string("Failed to read file: ") + path);
+    		throw err(std::string("Failed to read file: ") + path);
         }
         close(fp, path);
 
