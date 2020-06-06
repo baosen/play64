@@ -78,7 +78,7 @@ executable(
     )
 ])
 
-test('cop0 tests',
+test('cop0 unit tests',
     executable(
         'cop0_test',
         'src/cpu/cop0/cop0_test.cpp',
