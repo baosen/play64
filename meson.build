@@ -77,3 +77,16 @@ executable(
         'opengl',
     )
 ])
+
+test('cop0 tests',
+    executable(
+        'cop0_test',
+        'src/cpu/cop0/cop0_test.cpp',
+        dependencies:
+            dependency(
+                'gtest',
+                main: true,
+                required: false
+            )
+    )
+)
