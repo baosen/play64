@@ -1,7 +1,7 @@
 #include "../../../data_types/types.hpp"
 #include "../../memmacros.hpp"
 
-// Parallel interface.
+// "Parallel interface", which is the memory interface for the DMA copy engine.
 namespace Pi {
     WR(dram_addr);
     WR(cart_addr);

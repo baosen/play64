@@ -6,7 +6,7 @@
 #include <iostream>
 
 // The DMA engine to DMA (copy asynchronously) data between RAM and game cartridge.
-// Write the length and it begins the asynchronously DMA process automatically.
+// Write the length and it begins the asynchronously DMA copy process automatically.
 namespace {
     u32 dramaddr = 0, // RAM memory address.
         cartaddr = 0, // Cartridge memory address.
