@@ -26,7 +26,7 @@ executable(
     #'src/cli/trace.cpp',
     'src/memory_map/byteswap.cpp',
     'src/memory_map/physical_memory/ai/ai.cpp',
-    'src/memory_map/physical_memory/si/pif/cic.cpp',
+    'src/memory_map/physical_memory/si/pif/cic/cic6105.cpp',
     'src/memory_map/physical_memory/physmem.cpp',
     'src/memory_map/physical_memory/pi/pi.cpp',
     'src/memory_map/physical_memory/si/pif/pif.cpp',
@@ -65,7 +65,6 @@ executable(
     'src/disassembler/strings.cpp',
     'src/disassembler/strmanip.cpp',
     'src/cartridge/manufacts.cpp',
-    'src/head.cpp',
     'src/signal.cpp',
     'src/logging/log.cpp',
 ], dependencies: [

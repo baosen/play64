@@ -75,6 +75,7 @@ namespace {
     	}
     }
     INSTR(unkreg) { throw err(undef("Unknown REGIMM-instruction: ", instr) + "!"); }
+
     INSTRTBL(regimms) {
     	&bltz,   &bgez,   &bltzl,   &bgezl,   &unkreg, &unkreg, &unkreg, &unkreg,
     	&unkreg, &unkreg, &unkreg,  &unkreg,  &unkreg, &unkreg, &unkreg, &unkreg,
