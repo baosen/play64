@@ -92,3 +92,16 @@ test('cop0',
             )
     )
 )
+
+test('vi',
+    executable(
+        'vi_test',
+        'src/memory_map/physical_memory/vi/vi_test.cpp',
+        dependencies:
+            dependency(
+                'gtest',
+                main: true,
+                required: false
+            )
+    )
+)

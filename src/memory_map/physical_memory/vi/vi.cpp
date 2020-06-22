@@ -14,6 +14,7 @@ namespace {
 
 // Video DAC-interface.
 namespace Vi {
+    // Reset current line.
     void reset() { 
         line = 0;
     }
