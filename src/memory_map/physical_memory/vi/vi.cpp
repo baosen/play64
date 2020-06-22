@@ -1,18 +1,16 @@
 #include <iostream>
 #include "vi.hpp"
 #include "../mi/mi.hpp"
-using namespace std;
-
-#define NREGS 14
 
 // This is the interface to control the Video-DAC (Video digital-to-analog converter).
 namespace {
+    Word control = 0;
     Word line = 0;
     Word xscale = 1, yscale = 1; // is a fixed/float?
-    Word fbaddr;
+    Word fbaddr = 0;
 }
 
-// Video DAC-interface.
+// The registers of the Video DAC-interface (VI).
 namespace Vi {
     // Reset current line.
     void reset() { 
@@ -36,6 +34,7 @@ namespace Vi {
                 val & DIVOT ? "Enabled" : "Disabled", 
                 val & SERRATE ? "Enabled" : "Disabled", 
                 val & ANTIALIAS ? "Enabled" : "Disabled");
+        control = val;
     }
 
 // Framebuffer origin DRAM address:
