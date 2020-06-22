@@ -3,7 +3,6 @@
 #include "../../tlb/tblsize.hpp"
 #include "../instrstr.hpp"
 #include "../../strings/strmacros.hpp"
-using namespace std;
 
 namespace {
 	const char* undefs = "Undefined normal instruction: ";
