@@ -1,6 +1,6 @@
-#include <iostream>
 #include "vi.hpp"
 #include "../mi/mi.hpp"
+#include <cstdio>
 
 // This is the interface to control the Video-DAC (Video digital-to-analog converter).
 namespace {
