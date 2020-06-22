@@ -80,16 +80,17 @@ executable(
     ]
 )
 
+gtest = dependency(
+    'gtest',
+    main: true,
+    required: false
+)
+
 test('cop0',
     executable(
         'cop0_test',
         'src/cpu/cop0/cop0_test.cpp',
-        dependencies:
-            dependency(
-                'gtest',
-                main: true,
-                required: false
-            )
+        dependencies: gtest
     )
 )
 
@@ -97,11 +98,6 @@ test('vi',
     executable(
         'vi_test',
         'src/memory_map/physical_memory/vi/vi_test.cpp',
-        dependencies:
-            dependency(
-                'gtest',
-                main: true,
-                required: false
-            )
+        dependencies: gtest
     )
 )
