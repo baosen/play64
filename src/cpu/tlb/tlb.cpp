@@ -1,12 +1,10 @@
-#include <iostream>
-#include <array>
-#include <iomanip>
 #include "../interpreter/registers/cpu.hpp"
 #include "../../memory_map/mem.hpp"
 #include "../interpreter/err.hpp"
 #include "tlb.hpp"
 #include "../cop0/syscon.hpp"
 #include "../../memory_map/mips_exception_handlers.hpp"
+#include <iomanip>
 
 // TODO:
 // - Global and valid bit.
