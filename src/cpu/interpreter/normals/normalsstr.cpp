@@ -41,6 +41,7 @@ namespace {
 	};
 }
 
+// Build normal instruction string.
 string build_normal(const Instr i) {
 	const auto op(static_cast<uint>(i.normal()));
 	return ops[op](str[op], i);
