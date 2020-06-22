@@ -70,7 +70,7 @@ namespace Pak {
     	// Byteswap the entire rom to the correct endianness for the ROM in the Game Pak.
     	rombswap(rom, l);
 
-        // Load bootcode to SP DMEM.
+        // Load boot code to Reality Signal Processor's Data Memory.
         memcpy(Sp::dmem+0x40, rom+0x40, 0xfc0);
 
         // Set TV-type.
