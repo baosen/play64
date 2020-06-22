@@ -35,9 +35,9 @@ namespace {
 }
 
 enum {
-    PAL = 0,  // 50 fps.
-    NTSC = 1, // 60 fps.
-    MPAL = 2, // 50 fps.
+    PAL = 0,  // European TV video signal standard. 50 fps.
+    NTSC = 1, // American TV video signal standard. 60 fps.
+    MPAL = 2, // Brazilian video signal standard. 50 fps.
 };
 
 // Game cartridge (Game Pak).
