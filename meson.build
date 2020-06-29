@@ -17,6 +17,7 @@ unused_cli_code = [
 ]
 
 sources = [
+    'src/memory_map/mem.cpp',
     'src/memory_map/byteswap.cpp',
     'src/memory_map/physical_memory/ai/ai.cpp',
     'src/memory_map/physical_memory/si/pif/cic/cic6105.cpp',
@@ -24,7 +25,6 @@ sources = [
     'src/memory_map/physical_memory/pi/pi.cpp',
     'src/memory_map/physical_memory/si/pif/pif.cpp',
     'src/memory_map/physical_memory/rdram/rdram.cpp',
-    'src/memory_map/mem.cpp',
     'src/memory_map/physical_memory/mi/mi.cpp',
     'src/memory_map/physical_memory/cart/pak.cpp',
     'src/memory_map/physical_memory/ri/ri.cpp',
