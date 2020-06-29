@@ -1,5 +1,4 @@
 #pragma once
-#include "../../../data_types/types.hpp"
 #include "../../memmacros.hpp"
 
 // Video interface.

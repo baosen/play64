@@ -1,13 +1,17 @@
 #include <gtest/gtest.h>
 #include "vi.hpp"
 
-// Test the Video Interface (VI).
+// Tests for the Video Interface (VI).
 
-TEST(vi, one_equal_one) {
-    ASSERT_EQ(1, 1);
-}
+// Test framebuffer allocation.
+TEST(vi, framebuffer_allocation) {
+    // Allocate frame buffer.
 
-// Set framebuffer physical memory origin address.
-TEST(vi, set_framebuffer_physical_memory_origin_address) {
+    // Set framebuffer address.
+
+    // Fill framebuffer.
+
+    // Draw from framebuffer onto the screen.
+
     ASSERT_EQ(1, 1);
 }
