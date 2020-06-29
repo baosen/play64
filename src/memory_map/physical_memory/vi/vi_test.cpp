@@ -3,15 +3,18 @@
 
 // Tests for the Video Interface (VI).
 
-// Test framebuffer allocation.
+// TODO: Setup framebuffer.
+// TODO: Teardown framebuffer.
+
+// Allocate framebuffer and fill it.
 TEST(vi, framebuffer_allocation) {
     // Allocate frame buffer.
+    uint32_t framebuffer[640*480] = {0};
 
     // Set framebuffer address.
 
-    // Fill framebuffer.
+    // Fill framebuffer with the color red.
 
-    // Draw from framebuffer onto the screen.
-
+    // Check if framebuffer is filled with pixels.
     ASSERT_EQ(1, 1);
 }

@@ -5,16 +5,19 @@
 // This is the interface to control the Video-DAC (Video digital-to-analog converter).
 namespace {
     Word control = 0;
-    Word line = 0;
-    Word xscale = 1, yscale = 1; // is a fixed/float?
-    Word fbaddr = 0;
-}
 
-// The registers of the Video DAC-interface (VI).
-namespace Vi {
-    // Reset current line.
-    void reset() { 
-        line = 0;
+    // anamorphic NTSC resolution
+    namespace ntsc {
+        const unsigned int width = 640;
+        const unsigned int height = 480;
+        const unsigned int vertical_sync = 525; // typical.
+    }
+
+    // anamorphic PAL resolution
+    namespace pal {
+        const unsigned int width = 768;
+        const unsigned int height = 576;
+        const unsigned int vertical_sync = 625; // typical.
     }
 
     // STATUS-register bit masks:
@@ -25,6 +28,42 @@ namespace Vi {
         SERRATE      = 0x40,
         ANTIALIAS    = 0x300
     };
+
+    bool get_tv_type() {
+        return control & 3;
+    }
+
+    bool is_gamma_dither_enabled() {
+        return control >> 2 & 1;
+    }
+
+    bool is_gamma_enabled() {
+        return control >> 3 & 1;
+    }
+
+    bool is_divot_enabled() {
+        return control >> 4 & 1;
+    }
+
+    bool is_vbus_clock_enabled() {
+        return control >> 5 & 1;
+    }
+
+    bool serrate() {
+        return control >> 6 & 1;
+    }
+
+    Word line = 0;
+    Word xscale = 1, yscale = 1; // is a fixed/float?
+    Word fbaddr = 0;
+}
+
+// The registers of the Video DAC-interface (VI).
+namespace Vi {
+    // Reset current line.
+    void reset() {
+        line = 0;
+    }
 
     // Controls the behaviour of the Video DAC/Encoder:
     WR(control) { // Sets the pixel-format of the framebuffer and how the pixels should be drawn.
@@ -49,7 +88,7 @@ namespace Vi {
         printf("[VI] Framebuffer-address: %08x\n", val);
     }
 
-    // Sets the width of the framebuffer in pixels.
+    // Sets the width of the framebuffer in number of pixels. 
     WR(width) { // horizontal width.
         printf("[VI] Framebuffer-width: %u pixels\n", val);
     }

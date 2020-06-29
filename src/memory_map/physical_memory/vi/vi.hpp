@@ -10,7 +10,7 @@ namespace Vi {
     RD(origin);
     WR(origin);
 
-    // The width of the framebuffer in pixels. How big is a pixel?
+    // The width of the framebuffer in number of 32-bit ABGR 8-bit component pixels.
     WR(width);
 
     WR(intr);
