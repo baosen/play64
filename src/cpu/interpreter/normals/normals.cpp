@@ -14,6 +14,7 @@ INSTR(regimm);
 INSTR(cop0);
 INSTR(cop1);
 
+// Implementation of the NORMAL-instructions of the VR4300 CPU.
 namespace {
     auto idxsh(const Instr i) { 
         return i.instr_idx() << 2; 
@@ -22,9 +23,10 @@ namespace {
         return i.offset() << 2; 
     }
 
-//
-// Branches
-//
+    //
+    // Branch operations.
+    //
+
     // Jump.
     INSTR(j) {
         execute_instruction(fetch());
@@ -122,9 +124,10 @@ namespace {
     	incpc(INSTR_SIZE);
     }
 
-//
-// Immediates
-//
+    //
+    // Immediate operations.
+    //
+
     // Add immediate unsigned.
     INSTR(addiu) { 
         set64(instr.rt(), sext32((s32)get32(instr.rs())+((s32)sext16(instr.imm()))&(~0))); 
@@ -175,9 +178,10 @@ namespace {
         // - Trap on overflow.
     }
 
-//
-// Loads
-//
+    //
+    // Load operations.
+    //
+
     // Load upper immediate.
     INSTR(lui) { 
         set64(instr.rt(), sext32(instr.imm() << 16)); 
@@ -223,9 +227,10 @@ namespace {
         throw err("LWL is not implemented yet..."); 
     }
 
-//
-// Store
-//
+    //
+    // Store operations.
+    //
+
     // Store 8-bit byte.
     INSTR(sb) { 
         Vmem::wr8(VADDR, get8(instr.rt())); 
