@@ -1,6 +1,7 @@
 project(
     'play64!',
     'cpp',
+    license: 'GPL3',
     default_options: [
         'cpp_std=c++2a',
     ]
