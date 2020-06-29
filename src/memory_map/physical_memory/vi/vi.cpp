@@ -5,6 +5,8 @@
 // This is the interface to control the Video-DAC (Video digital-to-analog converter).
 namespace {
     Word control = 0;
+    Word hstart = 0;
+    Word vstart = 0;
 
     // anamorphic NTSC resolution
     namespace ntsc {
@@ -29,7 +31,14 @@ namespace {
         ANTIALIAS    = 0x300
     };
 
-    bool get_tv_type() {
+    enum type {
+        blank,
+        reserved,
+        rgba5551, // 16-bit color (internally 18-bit RGBA 5553).
+        rgba8888, // 32-bit color.
+    };
+
+    unsigned int get_tv_type() {
         return control & 3;
     }
 
@@ -49,8 +58,23 @@ namespace {
         return control >> 5 & 1;
     }
 
+    // Enable serrate-function.
     bool serrate() {
         return control >> 6 & 1;
+    }
+
+    unsigned int get_vertical_start() {
+        return (vstart >> 16) & 0x3ff;
+    }
+    unsigned int get_vertical_end() {
+        return vstart & 0x3ff;
+    }
+
+    unsigned int get_horizontal_start() {
+        return (hstart >> 16) & 0x3ff;
+    }
+    unsigned int get_horizontal_end() {
+        return hstart & 0x3ff;
     }
 
     Word line = 0;
@@ -134,6 +158,7 @@ namespace Vi {
 
     // Horizontal video start.
 	WR(hstart) { // wtf?
+        hstart = val;
         printf("[VI] Horizontal video start: %d pixel end: %d pixel\n", val >> 15, (val & 0x1ff));
     }
     // (RW): [9:0] end of active video in screen pixels
@@ -142,6 +167,7 @@ namespace Vi {
 
     // Vertical video start.
 	WR(vstart) { 
+        vstart = val;
         printf("[VI] Vertical video start: %d line end: %d line\n", val >> 15, (val & 0x1ff));
     }
     // [9:0] end of active video in screen lines.
