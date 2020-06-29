@@ -159,7 +159,6 @@ namespace Vi {
     // Horizontal video start.
 	WR(hstart) { // wtf?
         hstart = val;
-        printf("[VI] Horizontal video start: %d pixel end: %d pixel\n", val >> 15, (val & 0x1ff));
     }
     // (RW): [9:0] end of active video in screen pixels
     //       [25:16] start of active video in screen pixels
@@ -168,7 +167,6 @@ namespace Vi {
     // Vertical video start.
 	WR(vstart) { 
         vstart = val;
-        printf("[VI] Vertical video start: %d line end: %d line\n", val >> 15, (val & 0x1ff));
     }
     // [9:0] end of active video in screen lines.
     // [25:16] start of active video in screen lines.
