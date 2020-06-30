@@ -31,6 +31,7 @@ enum {
 };
 
 namespace vi { namespace control {
+    // Returns the TV type.
     unsigned int get_tv_type() {
         return vi::control::get() & 3;
     }
