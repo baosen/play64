@@ -1,5 +1,5 @@
 #include "vi.hpp"
-#include "control.h"
+#include "control/control.h"
 #include "../mi/mi.hpp"
 #include <cstdio>
 

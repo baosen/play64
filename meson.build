@@ -32,7 +32,7 @@ sources = [
     'src/memory_map/physical_memory/sp/sp.cpp',
     'src/memory_map/physical_memory/dp/dp.cpp',
     'src/memory_map/physical_memory/vi/vi.cpp',
-    'src/memory_map/physical_memory/vi/control.cpp',
+    'src/memory_map/physical_memory/vi/control/control.cpp',
     'src/memory_map/virtual_memory/vmem.cpp',
     'src/cpu/cop0/cop0.cpp',
     'src/cpu/cop0/cop0str.cpp',
@@ -126,8 +126,8 @@ test('vi',
 test('vi::control',
     executable(
         'control_test',
-        'src/memory_map/physical_memory/vi/control.cpp',
-        'src/memory_map/physical_memory/vi/control_test.cpp',
+        'src/memory_map/physical_memory/vi/control/control.cpp',
+        'src/memory_map/physical_memory/vi/control/control_test.cpp',
         dependencies: gtest
     )
 )
