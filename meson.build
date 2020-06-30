@@ -122,3 +122,12 @@ test('vi',
         dependencies: gtest
     )
 )
+
+test('vi::control',
+    executable(
+        'control_test',
+        'src/memory_map/physical_memory/vi/control.cpp',
+        'src/memory_map/physical_memory/vi/control_test.cpp',
+        dependencies: gtest
+    )
+)

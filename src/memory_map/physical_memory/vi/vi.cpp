@@ -5,37 +5,6 @@
 
 // This is the interface to control the Video-DAC (Video digital-to-analog converter).
 namespace {
-    // anamorphic NTSC resolution
-    namespace ntsc {
-        const unsigned int width = 640;
-        const unsigned int height = 480;
-        const unsigned int vertical_sync = 525; // typical.
-    }
-
-    // anamorphic PAL resolution
-    namespace pal {
-        const unsigned int width = 768;
-        const unsigned int height = 576;
-        const unsigned int vertical_sync = 625; // typical.
-    }
-
-    // STATUS-register bit masks:
-    enum {
-        PIXEL_SIZE   = 0x3,
-        GAMMA_DITHER = 0x4,
-        DIVOT        = 0x8,
-        SERRATE      = 0x40,
-        ANTIALIAS    = 0x300
-    };
-
-    enum type {
-        blank,
-        reserved,
-        rgba5551, // 16-bit color (internally 18-bit RGBA 5553).
-        rgba8888, // 32-bit color.
-    };
-
-
     // VERTICAL START.
     Word vstart = 0;
     unsigned int get_vertical_start() {
@@ -68,12 +37,14 @@ namespace Vi {
 
     // Controls the behaviour of the Video DAC/Encoder:
     WR(control) { // Sets the pixel-format of the framebuffer and how the pixels should be drawn.
+    /*
         printf("[VI] Pixel size: %u bytes. Gamma-dither: %s. Divot: %s. Serrate: %s. Anti-alias: %s\n",
                 val & PIXEL_SIZE, 
                 val & GAMMA_DITHER ? "Enabled" : "Disabled", 
                 val & DIVOT ? "Enabled" : "Disabled", 
                 val & SERRATE ? "Enabled" : "Disabled", 
                 val & ANTIALIAS ? "Enabled" : "Disabled");
+    */
         vi::control::set(val);
     }
 
