@@ -1,13 +1,10 @@
 #include "vi.hpp"
+#include "control.h"
 #include "../mi/mi.hpp"
 #include <cstdio>
 
 // This is the interface to control the Video-DAC (Video digital-to-analog converter).
 namespace {
-    Word control = 0;
-    Word hstart = 0;
-    Word vstart = 0;
-
     // anamorphic NTSC resolution
     namespace ntsc {
         const unsigned int width = 640;
@@ -38,31 +35,9 @@ namespace {
         rgba8888, // 32-bit color.
     };
 
-    unsigned int get_tv_type() {
-        return control & 3;
-    }
 
-    bool is_gamma_dither_enabled() {
-        return control >> 2 & 1;
-    }
-
-    bool is_gamma_enabled() {
-        return control >> 3 & 1;
-    }
-
-    bool is_divot_enabled() {
-        return control >> 4 & 1;
-    }
-
-    bool is_vbus_clock_enabled() {
-        return control >> 5 & 1;
-    }
-
-    // Enable serrate-function.
-    bool serrate() {
-        return control >> 6 & 1;
-    }
-
+    // VERTICAL START.
+    Word vstart = 0;
     unsigned int get_vertical_start() {
         return (vstart >> 16) & 0x3ff;
     }
@@ -70,6 +45,8 @@ namespace {
         return vstart & 0x3ff;
     }
 
+    // HORIZONTAL START.
+    Word hstart = 0;
     unsigned int get_horizontal_start() {
         return (hstart >> 16) & 0x3ff;
     }
@@ -97,7 +74,7 @@ namespace Vi {
                 val & DIVOT ? "Enabled" : "Disabled", 
                 val & SERRATE ? "Enabled" : "Disabled", 
                 val & ANTIALIAS ? "Enabled" : "Disabled");
-        control = val;
+        vi::control::set(val);
     }
 
     // Framebuffer origin DRAM address:
