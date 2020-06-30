@@ -1,5 +1,7 @@
 #include "control.h"
 
+namespace {
+
 // anamorphic NTSC resolution
 namespace ntsc {
     const unsigned int width = 640;
@@ -12,6 +14,11 @@ namespace pal {
     const unsigned int width = 768;
     const unsigned int height = 576;
     const unsigned int vertical_sync = 625; // typical.
+}
+
+// VI's STATUS/CONTROL-register.
+int32_t control = 0;
+
 }
 
 // STATUS-register bit masks:
@@ -29,11 +36,6 @@ enum type {
     rgba5551, // 16-bit color (internally 18-bit RGBA 5553).
     rgba8888, // 32-bit color.
 };
-
-// VI's STATUS/CONTROL-register.
-namespace {
-    int32_t control = 0;
-}
 
 namespace vi { namespace control {
     unsigned int get_tv_type() {
