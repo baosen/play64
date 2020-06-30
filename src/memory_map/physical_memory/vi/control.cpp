@@ -30,13 +30,6 @@ enum {
     ANTIALIAS    = 0x300
 };
 
-enum type {
-    blank,
-    reserved,
-    rgba5551, // 16-bit color (internally 18-bit RGBA 5553).
-    rgba8888, // 32-bit color.
-};
-
 namespace vi { namespace control {
     unsigned int get_tv_type() {
         return ::control & 3;
