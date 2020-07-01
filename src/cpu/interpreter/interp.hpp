@@ -1,6 +1,6 @@
 #pragma once
 #include "../interpreter/normals/cop0/syscon.hpp"
-#include "../fpu/fpu.hpp"
+#include "../interpreter/normals/cop1/fpu/fpu.hpp"
 #include "registers/cpu.hpp"
 #include "../../cartridge/ccode.hpp"
 #include "instr.hpp"
