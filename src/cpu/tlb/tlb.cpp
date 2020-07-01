@@ -2,7 +2,7 @@
 #include "../../memory_map/mem.hpp"
 #include "../interpreter/err.hpp"
 #include "tlb.hpp"
-#include "../cop0/syscon.hpp"
+#include "../interpreter/normals/cop0/syscon.hpp"
 #include "../../memory_map/mips_exception_handlers.hpp"
 #include <iomanip>
 

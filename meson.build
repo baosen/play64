@@ -34,12 +34,12 @@ sources = [
     'src/memory_map/physical_memory/vi/vi.cpp',
     'src/memory_map/physical_memory/vi/control/control.cpp',
     'src/memory_map/virtual_memory/vmem.cpp',
-    'src/cpu/cop0/cop0.cpp',
-    'src/cpu/cop0/cop0str.cpp',
-    'src/cpu/cop1/cop1.cpp',
-    'src/cpu/cop1/cop1str.cpp',
+    'src/cpu/interpreter/normals/cop0/cop0.cpp',
+    'src/cpu/interpreter/normals/cop0/cop0str.cpp',
+    'src/cpu/interpreter/normals/cop0/syscon.cpp',
+    'src/cpu/interpreter/normals/cop1/cop1.cpp',
+    'src/cpu/interpreter/normals/cop1/cop1str.cpp',
     'src/cpu/interpreter/registers/cpu.cpp',
-    'src/cpu/cop0/syscon.cpp',
     'src/cpu/fpu/fpu.cpp',
     'src/cpu/interpreter/instr.cpp',
     'src/cpu/interpreter/interp.cpp',
@@ -110,7 +110,7 @@ gtest = dependency(
 test('cop0',
     executable(
         'cop0_test',
-        'src/cpu/cop0/cop0_test.cpp',
+        'src/cpu/interpreter/normals/cop0/cop0_test.cpp',
         dependencies: gtest
     )
 )

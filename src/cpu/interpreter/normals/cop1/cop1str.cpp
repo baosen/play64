@@ -1,8 +1,8 @@
 #include "cop1str.hpp"
-#include "../strings/strmacros.hpp"
-#include "../../disassembler/strings.hpp"
-#include "../interpreter/instrstr.hpp"
-#include "../tlb/tblsize.hpp"
+#include "../../../strings/strmacros.hpp"
+#include "../../../../disassembler/strings.hpp"
+#include "../../instrstr.hpp"
+#include "../../../tlb/tblsize.hpp"
 using namespace std;
 
 namespace {

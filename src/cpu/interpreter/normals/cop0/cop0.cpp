@@ -1,6 +1,6 @@
-#include "../interpreter/interp.hpp"
-#include "../../disassembler/strings.hpp"
-#include "../interpreter/err.hpp"
+#include "../../interp.hpp"
+#include "../../../../disassembler/strings.hpp"
+#include "../../err.hpp"
 
 INSTR(tlb);
 

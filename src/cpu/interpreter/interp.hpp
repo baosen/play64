@@ -1,5 +1,5 @@
 #pragma once
-#include "../cop0/syscon.hpp"
+#include "../interpreter/normals/cop0/syscon.hpp"
 #include "../fpu/fpu.hpp"
 #include "registers/cpu.hpp"
 #include "../../cartridge/ccode.hpp"

@@ -107,7 +107,7 @@ STR(rt_fs) {
 	return asmy.str();
 }
 
-#include "../cpu/cop0/cop0const.hpp"
+#include "../cpu/interpreter/normals/cop0/cop0const.hpp"
 
 // For MTC0-3 instructions:
 // TODO: Tablify.

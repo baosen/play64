@@ -1,5 +1,5 @@
 #pragma once
-#include "../../data_types/types.hpp"
+#include "../../../../data_types/types.hpp"
 #include "cop0const.hpp"
 
 // The control processor for the MIPS architecture, known as Coprocessor 0 (COP0).
