@@ -1,9 +1,8 @@
-#include "../../../strings/strmacros.hpp"
 #include "regimmsstr.hpp"
+#include "../../../strings/strmacros.hpp"
 #include "../../../../disassembler/strings.hpp"
 #include "../../instrstr.hpp"
 #include "../cop0/tlb/tblsize.hpp"
-using namespace std;
 
 namespace {
 	const char* undefs = "Undefined REGIMM-instruction: ";
@@ -41,7 +40,7 @@ namespace {
 	};
 }
 
-string build_regimm(const Instr i) {
+std::string build_regimm(const Instr i) {
 	const auto op(i.regimm());
 	return ops[op](strings[op], i);
 }
