@@ -1,6 +1,6 @@
 #include "../cpu/interpreter/normals/normalsstr.hpp"
-#include "../cpu/interpreter/specials/specialsstr.hpp"
-#include "../cpu/interpreter/regimms/regimmsstr.hpp"
+#include "../cpu/interpreter/normals/specials/specialsstr.hpp"
+#include "../cpu/interpreter/normals/regimms/regimmsstr.hpp"
 #include "../cpu/cop1/cop1str.hpp"
 #include "../cpu/cop0/cop0str.hpp"
 using namespace std;

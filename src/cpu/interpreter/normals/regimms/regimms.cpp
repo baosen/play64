@@ -1,11 +1,11 @@
-#include "../sext.hpp"
-#include "../registers/register.hpp"
-#include "../../../disassembler/strings.hpp"
-#include "../interp.hpp"
+#include "../../sext.hpp"
+#include "../../registers/register.hpp"
+#include "../../../../disassembler/strings.hpp"
+#include "../../interp.hpp"
 using namespace Interpreter;
-#include "../registers/cpu.hpp"
+#include "../../registers/cpu.hpp"
 using namespace Cpu;
-#include "../err.hpp"
+#include "../../err.hpp"
 
 namespace {
     auto shift(const int val) { return val << 2; }

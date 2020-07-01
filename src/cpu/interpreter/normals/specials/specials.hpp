@@ -1,4 +1,4 @@
 #pragma once
-#include "../interp.hpp"
+#include "../../interp.hpp"
 
 INSTR(special);

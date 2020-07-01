@@ -1,8 +1,8 @@
-#include "../../../disassembler/strings.hpp"
+#include "../../../../disassembler/strings.hpp"
 #include "specials.hpp"
-#include "../instrstr.hpp"
-#include "../../tlb/tblsize.hpp"
-#include "../../strings/strmacros.hpp"
+#include "../../instrstr.hpp"
+#include "../../../tlb/tblsize.hpp"
+#include "../../../strings/strmacros.hpp"
 using namespace std;
 
 namespace {
