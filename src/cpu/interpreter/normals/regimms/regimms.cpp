@@ -2,10 +2,10 @@
 #include "../../registers/register.hpp"
 #include "../../../../disassembler/strings.hpp"
 #include "../../interp.hpp"
-using namespace Interpreter;
 #include "../../registers/cpu.hpp"
-using namespace Cpu;
 #include "../../err.hpp"
+using namespace Interpreter;
+using namespace Cpu;
 
 namespace {
     auto shift(const int val) { return val << 2; }
