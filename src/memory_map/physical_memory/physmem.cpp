@@ -1,6 +1,6 @@
 #include "physmem.hpp"
 #include "../../cpu/interpreter/err.hpp"
-#include "../physical_memory//cart/pak.hpp"
+#include "../physical_memory/cart/pak.hpp"
 #include "../physical_memory/rdram/rdram.hpp"
 #include "../physical_memory/pi/pi.hpp"
 #include "../physical_memory/ai/ai.hpp"
