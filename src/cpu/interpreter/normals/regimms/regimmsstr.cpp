@@ -2,7 +2,7 @@
 #include "regimmsstr.hpp"
 #include "../../../../disassembler/strings.hpp"
 #include "../../instrstr.hpp"
-#include "../../../tlb/tblsize.hpp"
+#include "../cop0/tlb/tblsize.hpp"
 using namespace std;
 
 namespace {

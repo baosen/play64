@@ -1,4 +1,4 @@
-#include "../../cpu/tlb/tlb.hpp"
+#include "../../cpu/interpreter/normals/cop0/tlb/tlb.hpp"
 #include "../physical_memory/physmem.hpp"
 #include "../../cpu/interpreter/err.hpp"
 #include <iomanip>

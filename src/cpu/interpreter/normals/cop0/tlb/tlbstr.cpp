@@ -1,8 +1,7 @@
-#include "../../disassembler/strings.hpp"
-#include "../interpreter/instrstr.hpp"
 #include "tblsize.hpp"
-#include "../strings/strmacros.hpp"
-using namespace std;
+#include "../../../../../disassembler/strings.hpp"
+#include "../../../instrstr.hpp"
+#include "../../../../strings/strmacros.hpp"
 
 namespace {
 	const char* undef = "Undefined TLB-instruction: ";
@@ -18,6 +17,6 @@ namespace {
 	};
 }
 
-string build_tlb(const uint i) {
+std::string build_tlb(const uint i) {
 	return string(strings[i]);
 }

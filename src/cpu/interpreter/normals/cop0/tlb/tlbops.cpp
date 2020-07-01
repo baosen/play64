@@ -1,8 +1,8 @@
-#include <iostream>
-#include "../interpreter/err.hpp"
 #include "tlb.hpp"
-#include "../interpreter/interp.hpp"
-#include "../../disassembler/strings.hpp"
+#include "../../../err.hpp"
+#include "../../../interp.hpp"
+#include "../../../../../disassembler/strings.hpp"
+#include <iostream>
 using namespace System_control;
 
 namespace {

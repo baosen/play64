@@ -1,6 +1,6 @@
 #include "normalsstr.hpp"
 #include "../../../disassembler/strings.hpp"
-#include "../../tlb/tblsize.hpp"
+#include "../../../cpu/interpreter/normals/cop0/tlb/tblsize.hpp"
 #include "../instrstr.hpp"
 #include "../../strings/strmacros.hpp"
 

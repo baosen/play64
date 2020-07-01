@@ -6,7 +6,7 @@
 #include "instr.hpp"
 #include "../../memory_map/virtual_memory/vmem.hpp"
 #include "../../disassembler/disassembly.hpp"
-#include "../tlb/tblsize.hpp"
+#include "../interpreter/normals/cop0/tlb/tblsize.hpp"
 
 // Defines a MIPS instruction.
 #define INSTR(name) void name(const Instr instr)

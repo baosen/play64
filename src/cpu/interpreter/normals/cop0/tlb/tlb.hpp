@@ -1,6 +1,6 @@
 #pragma once
-#include "../../memory_map/memaddr.hpp"
-#include "../../data_types/types.hpp"
+#include "../../../../../memory_map/memaddr.hpp"
+#include "../../../../../data_types/types.hpp"
 
 // Each TLB entry is associated with a particular page size that is either 4096 bytes (4k pages) or 16 megabyte pages.
 #define PAGE_NUMBER 0xfffff000

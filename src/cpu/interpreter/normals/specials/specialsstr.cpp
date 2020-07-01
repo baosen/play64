@@ -1,7 +1,7 @@
-#include "../../../../disassembler/strings.hpp"
 #include "specials.hpp"
+#include "../../../../disassembler/strings.hpp"
 #include "../../instrstr.hpp"
-#include "../../../tlb/tblsize.hpp"
+#include "../../normals/cop0/tlb/tblsize.hpp"
 #include "../../../strings/strmacros.hpp"
 using namespace std;
 

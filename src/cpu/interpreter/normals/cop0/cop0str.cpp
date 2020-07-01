@@ -1,7 +1,7 @@
 #include "cop0str.hpp"
 #include "../../../../disassembler/strings.hpp"
 #include "../../instrstr.hpp"
-#include "../../../tlb/tblsize.hpp"
+#include "tlb/tblsize.hpp"
 #include "../../../strings/strmacros.hpp"
 
 namespace {

@@ -2,7 +2,7 @@
 #include "../../../strings/strmacros.hpp"
 #include "../../../../disassembler/strings.hpp"
 #include "../../instrstr.hpp"
-#include "../../../tlb/tblsize.hpp"
+#include "../../../../cpu/interpreter/normals/cop0/tlb/tblsize.hpp"
 using namespace std;
 
 namespace {

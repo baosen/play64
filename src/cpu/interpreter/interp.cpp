@@ -1,6 +1,6 @@
 #include "interp.hpp"
 #include "normals/normals.hpp"
-#include "../tlb/tlb.hpp"
+#include "../interpreter/normals/cop0/tlb/tlb.hpp"
 #include "../../memory_map/physical_memory/mi/mi.hpp"
 #include "err.hpp"
 
