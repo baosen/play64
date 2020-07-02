@@ -92,6 +92,7 @@ executable(
 executable(
     'play64-cli',
     sources + [
+        'src/gui/sfml/window.cpp',
         'src/cli/play64.cpp'
     ],
     dependencies: [
