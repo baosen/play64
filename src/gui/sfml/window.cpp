@@ -1,37 +1,36 @@
 #include "window.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include <cassert>
 
 namespace {
     std::unique_ptr<sf::RenderWindow> window;
+
+    // Clear window.
+    void clear_window() {
+        assert(window->isOpen());
+        window->clear();
+    }
+
+    // Display what is drawn in the framebuffer.
+    void display() {
+        assert(window->isOpen());
+        window->display();
+    }
 }
 
 namespace gui { namespace sfml {
     void create_main_window() {
         window = std::make_unique<sf::RenderWindow>(sf::VideoMode(640, 480), "No game loaded...");
-    /*
-        sf::CircleShape shape(100.f);
-        shape.setFillColor(sf::Color::White);
+    }
 
-        // Check if the window is open.
-        while (window->isOpen()) {
-            // Poll events from the computer.
-            sf::Event event;
-            while (window->pollEvent(event)) {
-                // Do the user want to close the application?
-                if (event.type == sf::Event::Closed) {
-                    // Close window.
-                    window->close();
-                }
-            }
+    void output_16bit_image(char framebuffer[]) {
+        assert(window != nullptr);
+        clear_window();
+    }
 
-            // Clear window.
-            window->clear();
-            // Draw.
-            window->draw(shape);
-            // Display what is drawn.
-            window->display();
-        }
-    */
+    void output_32bit_image(char framebuffer[]) {
+        assert(window != nullptr);
+        clear_window();
     }
 }}
