@@ -3,7 +3,6 @@
 #include "../../instrstr.hpp"
 #include "../../normals/cop0/tlb/tblsize.hpp"
 #include "../../../strings/strmacros.hpp"
-using namespace std;
 
 namespace {
 	const char* undefs = "Undefined SPECIAL-instruction: ";
@@ -41,7 +40,7 @@ namespace {
 	};
 }
 
-string build_special(const Instr i) {
+std::string build_special(const Instr i) {
 	const auto op(static_cast<uint>(i.special()));
 	return ops[op](strings[op], i);
 }
