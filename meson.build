@@ -43,15 +43,15 @@ sources = [
     'src/cpu/interpreter/normals/cop1/fpu/fpu.cpp',
     'src/cpu/interpreter/normals/cop1/cop1.cpp',
     'src/cpu/interpreter/normals/cop1/cop1str.cpp',
-    'src/cpu/interpreter/registers/cpu.cpp',
-    'src/cpu/interpreter/instr.cpp',
-    'src/cpu/interpreter/interp.cpp',
     'src/cpu/interpreter/normals/regimms/regimms.cpp',
     'src/cpu/interpreter/normals/regimms/regimmsstr.cpp',
     'src/cpu/interpreter/normals/specials/specials.cpp',
     'src/cpu/interpreter/normals/specials/specialsstr.cpp',
     'src/cpu/interpreter/normals/normals.cpp',
     'src/cpu/interpreter/normals/normalsstr.cpp',
+    'src/cpu/interpreter/registers/cpu.cpp',
+    'src/cpu/interpreter/instr.cpp',
+    'src/cpu/interpreter/interp.cpp',
     'src/cpu/interpreter/sext.cpp',
     'src/disassembler/decode.cpp',
     'src/disassembler/hex.cpp',
@@ -66,16 +66,16 @@ sources = [
 executable(
     'play64-gui',
     sources + [
-        'src/gui/app.cpp',
-        'src/gui/dbg.cpp',
-        'src/gui/disasm.cpp',
-        'src/gui/dlg.cpp',
-        'src/gui/frames/main_frame.cpp',
-        'src/gui/menu.cpp',
-        'src/gui/periph.cpp',
-        'src/gui/list_views/regs.cpp',
-        'src/gui/list_views/viview.cpp',
-        'src/gui/VideoOutput.cpp',
+        'src/gui/wxwidgets/app.cpp',
+        'src/gui/wxwidgets/dbg.cpp',
+        'src/gui/wxwidgets/disasm.cpp',
+        'src/gui/wxwidgets/dlg.cpp',
+        'src/gui/wxwidgets/frames/main_frame.cpp',
+        'src/gui/wxwidgets/menu.cpp',
+        'src/gui/wxwidgets/periph.cpp',
+        'src/gui/wxwidgets/list_views/regs.cpp',
+        'src/gui/wxwidgets/list_views/viview.cpp',
+        'src/gui/wxwidgets/VideoOutput.cpp',
     ],
     dependencies: [
         dependency(
@@ -99,7 +99,8 @@ executable(
         dependency(
             'sfml-all',
         )
-    ]
+    ],
+    cpp_args: '-DSFML'
 )
 
 gtest = dependency(

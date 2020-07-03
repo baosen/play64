@@ -1,9 +1,9 @@
-#include <sstream>
+#include "cmd.hpp"
+#include "../../data_types/types.hpp"
+#include "../../memory_map/memaddr.hpp"
 #include <wx/wx.h>
 #include <wx/listctrl.h>
-#include "../data_types/types.hpp"
-#include "cmd.hpp"
-#include "../memory_map/memaddr.hpp"
+#include <sstream>
 
 class Disassembler : public wxListView {
 public:

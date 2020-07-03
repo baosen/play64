@@ -21,7 +21,11 @@ namespace {
 
 namespace gui { namespace sfml {
     void create_main_window() {
-        window = std::make_unique<sf::RenderWindow>(sf::VideoMode(640, 480), "No game loaded...");
+        window = std::make_unique<sf::RenderWindow>(sf::VideoMode(100, 100), "No game loaded...");
+    }
+
+    void set_video_resolution(const unsigned int horizontal_res, const unsigned int vertical_res) {
+        window->setSize(sf::Vector2u(horizontal_res, vertical_res));
     }
 
     void output_16bit_image(char framebuffer[]) {

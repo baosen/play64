@@ -1,10 +1,10 @@
-#include <iomanip>
 #include "disasm.hpp"
 #include "dbg.hpp"
 #include "id.hpp"
-#include "../cpu/interpreter/instrsz.hpp"
-#include "../memory_map/virtual_memory/vmem.hpp"
-#include "../disassembler/decode.hpp"
+#include "../../cpu/interpreter/instrsz.hpp"
+#include "../../memory_map/virtual_memory/vmem.hpp"
+#include "../../disassembler/decode.hpp"
+#include <iomanip>
 using namespace std;
 
 // Event callbacks.

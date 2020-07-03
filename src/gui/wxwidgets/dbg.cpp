@@ -1,15 +1,14 @@
+#include "../../cpu/interpreter/err.hpp"
+#include "../../cpu/interpreter/interp.hpp"
 #include <algorithm>
 #include <list>
-#include "../cpu/interpreter/err.hpp"
-#include "../cpu/interpreter/interp.hpp"
-using namespace std;
 
 namespace {
-	list<memory_address> bp; // Breakpoints set by the user.
+	std::list<memory_address> bp; // Breakpoints set by the user.
 
     // Check if program counter did hit a breakpoint.
     bool hit_bp() { 
-        return find(begin(bp), end(bp), Cpu::pc) != end(bp); 
+        return std::find(std::begin(bp), std::end(bp), Cpu::pc) != std::end(bp); 
     }
 }
 
@@ -38,6 +37,6 @@ namespace Dbg {
     }
 
     bool isbp(const memory_address addr) {
-        return find(begin(bp), end(bp), addr) != end(bp); 
+        return std::find(std::begin(bp), std::end(bp), addr) != std::end(bp); 
     }
 }

@@ -1,9 +1,9 @@
-#include <wx/wx.h>
-#include <wx/aui/aui.h>
 #include "../disasm.hpp"
 #include "../list_views/regs.hpp"
 #include "../cmd.hpp"
 #include "../VideoOutput.h"
+#include <wx/wx.h>
+#include <wx/aui/aui.h>
 
 class MainFrame : public wxFrame {
 public:

@@ -1,11 +1,11 @@
-#include "../../cpu/interpreter/err.hpp"
-#include "../../cpu/interpreter/pc.hpp"
-#include "../../memory_map/physical_memory//cart/pak.hpp"
+#include "../../../cpu/interpreter/err.hpp"
+#include "../../../cpu/interpreter/pc.hpp"
+#include "../../../memory_map/physical_memory//cart/pak.hpp"
 #include "../menu.hpp"
 #include "../id.hpp"
 #include "../dlg.hpp"
 #include "../dbg.hpp"
-#include "../../cpu/interpreter/interp.hpp"
+#include "../../../cpu/interpreter/interp.hpp"
 #include "main_frame.hpp"
 #include <wx/wfstream.h>
 

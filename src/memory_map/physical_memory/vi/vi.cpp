@@ -1,6 +1,7 @@
 #include "vi.hpp"
 #include "control/control.h"
 #include "../mi/mi.hpp"
+#include "../../../gui/sfml/window.h"
 #include <cstdio>
 
 // This is the interface to control the Video-DAC (Video digital-to-analog converter).
@@ -23,8 +24,21 @@ namespace {
         return hstart & 0x3ff;
     }
 
+    // Set video resolution when vstart and hstart-registers has been set.
+    void set_resolution_if_registers_set() {
+        if (hstart != 0 && vstart != 0) {
+            const auto horizontal_resolution = get_horizontal_end() - get_horizontal_start();
+            const auto vertical_resolution = get_vertical_end() - get_vertical_start();
+        #ifdef SFML
+            gui::sfml::set_video_resolution(horizontal_resolution, vertical_resolution);
+        #endif
+        }
+    }
+
     Word line = 0;
+
     Word xscale = 1, yscale = 1; // is a fixed/float?
+
     Word fbaddr = 0;
 }
 
@@ -107,6 +121,7 @@ namespace Vi {
     // Horizontal video start.
 	WR(hstart) { // wtf?
         hstart = val;
+        set_resolution_if_registers_set();
     }
     // (RW): [9:0] end of active video in screen pixels
     //       [25:16] start of active video in screen pixels
@@ -115,6 +130,7 @@ namespace Vi {
     // Vertical video start.
 	WR(vstart) { 
         vstart = val;
+        set_resolution_if_registers_set();
     }
     // [9:0] end of active video in screen lines.
     // [25:16] start of active video in screen lines.

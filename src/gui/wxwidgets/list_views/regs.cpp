@@ -1,7 +1,6 @@
-#include <iomanip>
 #include "regs.hpp"
-#include "../../cpu/interpreter/registers/cpu.hpp"
-using namespace std;
+#include "../../../cpu/interpreter/registers/cpu.hpp"
+#include <iomanip>
 
 wxBEGIN_EVENT_TABLE(Regview, wxListView)
 wxEND_EVENT_TABLE()
@@ -47,7 +46,7 @@ Regview::Regview(wxFrame *f) : wxListView(f) {
     InsertItem(32, "pc");
 
     // Set string to output hexadecimals.
-    ss << hex << setw(16);
+    ss << std::hex << std::setw(16);
 
     // Set zero register to 0.
     set(0, 0);
