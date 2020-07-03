@@ -5,7 +5,6 @@
 #include "../../memory_map/virtual_memory/vmem.hpp"
 #include "../../disassembler/decode.hpp"
 #include <iomanip>
-using namespace std;
 
 // Event callbacks.
 BEGIN_EVENT_TABLE(Disassembler, wxListView)
@@ -18,7 +17,7 @@ Disassembler::Disassembler(wxFrame* f, const memory_address b)
     : wxListView(f), id(0), rows(0), base(b) {
     InsertColumn(0, "Address");
     InsertColumn(1, "Instructions");
-    ss << hex << setw(8);
+    ss << std::hex << std::setw(8);
 }
 
 // Clear and remove all instructions from the list.
