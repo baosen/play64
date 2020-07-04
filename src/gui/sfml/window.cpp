@@ -21,6 +21,7 @@ namespace {
 
 namespace gui { namespace sfml {
     void create_main_window() {
+        // Create a new window.
         window = std::make_unique<sf::RenderWindow>(sf::VideoMode(100, 100), "No game loaded...");
     }
 

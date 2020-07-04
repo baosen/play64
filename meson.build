@@ -89,17 +89,15 @@ executable(
     ]
 )
 
+sfml = dependency('sfml-all')
+
 executable(
     'play64-cli',
     sources + [
         'src/gui/sfml/window.cpp',
         'src/cli/play64.cpp'
     ],
-    dependencies: [
-        dependency(
-            'sfml-all',
-        )
-    ],
+    dependencies: [sfml],
     cpp_args: '-DSFML'
 )
 
@@ -114,6 +112,14 @@ test('cop0',
         'cop0_test',
         'src/cpu/interpreter/normals/cop0/cop0_test.cpp',
         dependencies: gtest
+    )
+)
+
+test('sfml::window',
+    executable(
+        'window_test',
+        'src/gui/sfml/window.cpp',
+        dependencies: [gtest, sfml]
     )
 )
 
