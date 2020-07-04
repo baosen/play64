@@ -16,6 +16,8 @@ unused_cli_code = [
     #'src/cli/trace.cpp',
 ]
 
+main_include_directory = include_directories('src/')
+
 sources = [
     'src/memory_map/mem.cpp',
     'src/memory_map/byteswap.cpp',
@@ -77,6 +79,7 @@ executable(
         'src/gui/wxwidgets/list_views/viview.cpp',
         'src/gui/wxwidgets/VideoOutput.cpp',
     ],
+    include_directories: main_include_directory,
     dependencies: [
         dependency(
             'wxwidgets',
@@ -97,6 +100,7 @@ executable(
         'src/gui/sfml/window.cpp',
         'src/cli/play64.cpp'
     ],
+    include_directories: main_include_directory,
     dependencies: [sfml],
     cpp_args: '-DSFML'
 )

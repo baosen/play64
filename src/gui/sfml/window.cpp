@@ -33,8 +33,8 @@ namespace gui { namespace sfml {
         assert(window != nullptr);
         assert(window->isOpen());
 
-        // TODO: Convert 16-bit color pixels to 32-bit RBGA color pixels.
         clear_main_window();
+        // TODO: Convert 16-bit color pixels to 32-bit RBGA color pixels.
     }
 
     // Output 32-bit color image from framebuffer to screen inside the window.
