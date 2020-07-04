@@ -11,7 +11,7 @@ int main(const int argc, const char* argv[]) {
     if (argc <= 1) {
         // No arguments provided.
         std::cerr << "Error: No file path to a Nintendo 64 ROM provided..."  << std::endl
-                  << "Usage: " << cli_executable_name << " <file path to Nintendo 64 ROM>"
+                  << "Usage: " << cli_executable_name << " <file path to Nintendo 64 ROM file>"
                   << std::endl;
         return EXIT_FAILURE;
     }
