@@ -1,8 +1,8 @@
 #include "normalsstr.hpp"
-#include "../../../disassembler/strings.hpp"
-#include "../../../cpu/interpreter/normals/cop0/tlb/tblsize.hpp"
-#include "../instrstr.hpp"
-#include "../../strings/strmacros.hpp"
+#include <disassembler/strings.hpp>
+#include <cpu/interpreter/normals/cop0/tlb/tblsize.hpp>
+#include <cpu/interpreter/instrstr.hpp>
+#include <cpu/strings/strmacros.hpp>
 
 namespace {
 	const char* undefs = "Undefined normal instruction: ";

@@ -1,8 +1,8 @@
-#include "../registers/register.hpp"
-#include "../interp.hpp"
-#include "../err.hpp"
-#include "../../../disassembler/strings.hpp"
-#include "../sext.hpp"
+#include <disassembler/strings.hpp>
+#include <cpu/interpreter/registers/register.hpp>
+#include <cpu/interpreter/interp.hpp>
+#include <cpu/interpreter/err.hpp>
+#include <cpu/interpreter/sext.hpp>
 #include <cassert>
 using namespace Cpu;
 using namespace Interpreter;

@@ -1,8 +1,8 @@
-#include "../../interp.hpp"
-#include "../../registers/cpu.hpp"
-#include "../../../../disassembler/strings.hpp"
-#include "../../sext.hpp"
-#include "../../err.hpp"
+#include <disassembler/strings.hpp>
+#include <cpu/interpreter/interp.hpp>
+#include <cpu/interpreter/registers/cpu.hpp>
+#include <cpu/interpreter/sext.hpp>
+#include <cpu/interpreter/err.hpp>
 
 // The floating-point unit.
 namespace {
