@@ -1,8 +1,8 @@
 #include "cop0str.hpp"
-#include "../../../../disassembler/strings.hpp"
-#include "../../instrstr.hpp"
-#include "tlb/tblsize.hpp"
-#include "../../../strings/strmacros.hpp"
+#include <disassembler/strings.hpp>
+#include <cpu/interpreter/instrstr.hpp>
+#include <cpu/interpreter/normals/cop0/tlb/tblsize.hpp>
+#include <cpu/strings/strmacros.hpp>
 
 namespace {
 	const char* undefcop0 = "Undefined COP0-instruction: ";

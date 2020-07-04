@@ -1,4 +1,4 @@
-#include "../../err.hpp"
+#include <cpu/interpreter/err.hpp>
 #include "syscon.hpp"
 
 static const int NUMBER_OF_COP0_REGISTERS = 32;

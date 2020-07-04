@@ -1,5 +1,5 @@
-#include "../../../../../data_types/types.hpp"
-#include "../../../../../memory_map/mem.hpp"
+#include <data_types/types.hpp>
+#include <memory_map/mem.hpp>
 
 #define NREGS 32
 
