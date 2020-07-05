@@ -1,8 +1,8 @@
-#include "register.hpp"
-#include "../instr.hpp"
-#include "../err.hpp"
 #include "cpu.hpp"
-#include "../pc.hpp"
+#include "register.hpp"
+#include <cpu/interpreter/instr.hpp>
+#include <cpu/interpreter/err.hpp>
+#include <cpu/interpreter/pc.hpp>
 
 // Is always zero:
 #define $zero Cpu::regs[zero]

@@ -1,9 +1,9 @@
-#include "../../sext.hpp"
-#include "../../registers/register.hpp"
-#include "../../../../disassembler/strings.hpp"
-#include "../../interp.hpp"
-#include "../../registers/cpu.hpp"
-#include "../../err.hpp"
+#include <disassembler/strings.hpp>
+#include <cpu/interpreter/sext.hpp>
+#include <cpu/interpreter/registers/register.hpp>
+#include <cpu/interpreter/interp.hpp>
+#include <cpu/interpreter/registers/cpu.hpp>
+#include <cpu/interpreter/err.hpp>
 using namespace Interpreter;
 using namespace Cpu;
 

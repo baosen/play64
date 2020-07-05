@@ -1,8 +1,8 @@
 #include "regimmsstr.hpp"
-#include "../../../strings/strmacros.hpp"
-#include "../../../../disassembler/strings.hpp"
-#include "../../instrstr.hpp"
-#include "../cop0/tlb/tblsize.hpp"
+#include <disassembler/strings.hpp>
+#include <cpu/strings/strmacros.hpp>
+#include <cpu/interpreter/instrstr.hpp>
+#include <cpu/interpreter/normals/cop0/tlb/tblsize.hpp>
 
 namespace {
 	const char* undefs = "Undefined REGIMM-instruction: ";

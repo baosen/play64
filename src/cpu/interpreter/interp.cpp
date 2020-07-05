@@ -1,8 +1,8 @@
 #include "interp.hpp"
-#include "normals/normals.hpp"
-#include "../interpreter/normals/cop0/tlb/tlb.hpp"
-#include "../../memory_map/physical_memory/mi/mi.hpp"
 #include "err.hpp"
+#include "normals/normals.hpp"
+#include <cpu/interpreter/normals/cop0/tlb/tlb.hpp>
+#include <memory_map/physical_memory/mi/mi.hpp>
 
 // Interprets MIPS III instructions.
 namespace Interpreter {
