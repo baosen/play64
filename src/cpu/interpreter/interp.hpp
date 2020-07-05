@@ -21,12 +21,16 @@ typedef void (*instr_t)(const Instr);
 namespace Interpreter {
     // Fetch an instruction.
     Instr fetch();
+
     // Execute MIPS instruction.
     void execute_instruction(const Instr instruction);
+
 	// Load N64 rom from a specified file path.
 	void load(const char filepath[]);
+
 	// Reset system. 
 	void reset();
+
 	// Execute one single instruction from where the PC points to.
 	void step();
 }
