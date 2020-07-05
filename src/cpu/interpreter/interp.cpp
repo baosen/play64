@@ -9,26 +9,27 @@ namespace Interpreter {
 // The Nintendo 64 consist of a CPU executing instructions from the MIPS III instruction set, a MIPS COP0 control unit and a COP1 floating-point co-processor.
 // It has no COP2 and COP3 processors.
 
-    // Fetch an instruction from the memory.
-    Instr fetch() { 
+    // Fetch a new instruction from program counter in memory.
+    Instr fetch() {
         return Instr(Vmem::rd32(Cpu::pc)); 
     }
 
     // Execute an instruction given.
-    void execute_instruction(const Instr instruction) {
+    void execute_instruction(const Instr instruction_to_execute) {
     	// Check if is a NOP (no operation)-instruction.
-    	if (instruction.is_nop())
+    	if (instruction_to_execute.is_nop()) {
             goto decrement_random;
+        }
 
-    	// Interpret NORMAL-instruction.
-    	Normals::call(instruction);
+    	// Interpret MIPS III-instruction.
+    	Normals::call(instruction_to_execute);
 
     decrement_random:
         // Decrements the control unit's random register, which is decremented each time an instruction is executed (p.69 VR4300).
         System_control::decrement_random();
     }
 
-    // Execute exactly one single MIPS-instruction fetched from RD-ram memory.
+    // Execute exactly one single MIPS-instruction fetched from RDram memory.
     void step() {
 start:
     	try {
