@@ -1,12 +1,12 @@
 #pragma once
-#include "../interpreter/normals/cop0/syscon.hpp"
-#include "../interpreter/normals/cop1/fpu/fpu.hpp"
-#include "registers/cpu.hpp"
-#include "../../cartridge/ccode.hpp"
 #include "instr.hpp"
-#include "../../memory_map/virtual_memory/vmem.hpp"
-#include "../../disassembler/disassembly.hpp"
-#include "../interpreter/normals/cop0/tlb/tblsize.hpp"
+#include <cartridge/ccode.hpp>
+#include <disassembler/disassembly.hpp>
+#include <memory_map/virtual_memory/vmem.hpp>
+#include <cpu/interpreter/normals/cop0/syscon.hpp>
+#include <cpu/interpreter/normals/cop1/fpu/fpu.hpp>
+#include <cpu/interpreter/registers/cpu.hpp>
+#include <cpu/interpreter/normals/cop0/tlb/tblsize.hpp>
 
 // Defines a MIPS instruction.
 #define INSTR(name) void name(const Instr instr)
