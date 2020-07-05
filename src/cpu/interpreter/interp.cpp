@@ -9,7 +9,7 @@ namespace Interpreter {
 // The Nintendo 64 consist of a CPU executing instructions from the MIPS III instruction set, a MIPS COP0 control unit and a COP1 floating-point co-processor.
 // It has no COP2 and COP3 processors.
 
-    // Fetch a new instruction from program counter in memory.
+    // Fetch a instruction from program counter in memory.
     Instr fetch() {
         return Instr(Vmem::rd32(Cpu::pc)); 
     }
