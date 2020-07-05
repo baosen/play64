@@ -1,7 +1,7 @@
 #include "vi.hpp"
 #include "control/control.h"
-#include "../mi/mi.hpp"
-#include "../../../gui/sfml/window.h"
+#include <memory_map/physical_memory/mi/mi.hpp>
+#include <gui/sfml/window.h>
 #include <cstdio>
 
 // This is the interface to control the Video-DAC (Video digital-to-analog converter).

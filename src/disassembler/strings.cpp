@@ -1,5 +1,5 @@
 #include <iomanip>
-#include "../cpu/interpreter/instr.hpp"
+#include <cpu/interpreter/instr.hpp>
 #include "strings.hpp"
 #include "tlbstr.hpp"
 using namespace std;
