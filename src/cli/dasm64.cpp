@@ -2,7 +2,6 @@
 #include <iomanip>
 #include <iostream>
 #include <vector>
-#include "../data_types/types.hpp"
 #include "cmdparams.hpp"
 #include "../cpu/interpreter/err.hpp"
 #include "../disassembler/decode.hpp"

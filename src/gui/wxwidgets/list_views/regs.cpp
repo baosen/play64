@@ -56,7 +56,7 @@ Regview::Regview(wxFrame *f) : wxListView(f) {
 }
 
 // Set register i with value val in the view.
-void Regview::set(const uint i, const s64 val) {
+void Regview::set(const unsigned int i, const int64_t val) {
     ss.str("");
     ss << val;
     SetItem(i, 1, ss.str().c_str());

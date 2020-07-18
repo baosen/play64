@@ -1,14 +1,14 @@
 #pragma once
-#include "data_types/types.hpp"
+#include <cstdint>
 
-inline s64 align(const s64 addr) {
+inline int64_t align(const int64_t addr) {
 	return addr & 0xffffffff;
 }
 
-inline int lw_not_aligned(const s64 addr) {
+inline int lw_not_aligned(const int64_t addr) {
 	return addr & 3;
 }
 
-inline int not_aligned(const s64 addr) {
+inline int not_aligned(const int64_t addr) {
     return addr & 1;
 }

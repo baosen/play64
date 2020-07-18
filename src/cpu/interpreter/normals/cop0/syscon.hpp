@@ -6,9 +6,18 @@
 namespace System_control {
     extern Dword cp0[];
 
+    // Reset system control.
     void  reset();
-	Dword get64(const uint i);
-	void  set64(const uint i, const Dword val);
+
+    // Get 64-bit value from COP0 register i.
+	Dword get64(const unsigned int i);
+
+    // Set 64-bit value from COP0 register i.
+	void  set64(const unsigned int i, const Dword val);
+
+    // Decrement random register.
     void  decrement_random();
+
+    // Revert to previous state.
     void  revert();
 }

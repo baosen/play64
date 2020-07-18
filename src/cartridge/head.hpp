@@ -1,5 +1,4 @@
 #pragma once
-#include "data_types/types.hpp"
 
 struct Head {
 	u8 header_bytes[4];	 // Magic header numbers that indicate it is a ROM from a Nintendo 64 cartridge.  
